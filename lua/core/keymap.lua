@@ -233,7 +233,7 @@ function M.setup()
 
   -- Formatter
   wk.register({
-    ff = { '<cmd>Format<CR>', 'Format' },
+    F = { '<cmd>Format<CR>', 'Format' },
   }, { prefix = '<Leader>' })
 end
 
