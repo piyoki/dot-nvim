@@ -176,7 +176,7 @@ sudo npm install -g prettier
 # yamlfmt
 pip3 install yamlfmt
 # python formatter
-pip3 install black
+sudo pacman -S python-black
 # ruby formatter (required PATH setup)
 gem install rubocop
 # terragrunt(terraform) formatter (comes with terragrunt/terraform)
