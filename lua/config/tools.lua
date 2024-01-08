@@ -52,7 +52,7 @@ function tools.setup()
   require('telescope').setup({
     defaults = {
       defaults = require('telescope.themes').get_ivy(),
-      file_ignore_patterns = { 'node_modules/', '.git/' },
+      file_ignore_patterns = { 'node_modules/', '.git/', 'lib/' },
     },
     pickers = {
       find_files = {
