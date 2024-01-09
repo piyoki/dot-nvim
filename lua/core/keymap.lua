@@ -130,6 +130,10 @@ function M.setup()
   -- LSP (Short)
   vim.keymap.set('n', '<C-e>', vim.diagnostic.open_float)
 
+  -- Codeium
+  vim.keymap.set('i', '<C-g>', '<cmd>call codeium#Accept()<CR>')
+  vim.keymap.set('i', '<C-x>', '<cmd>call codeium#Clear()<CR>')
+
   -- Git
   wk.register({
     gd = {

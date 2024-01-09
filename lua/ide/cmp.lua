@@ -32,10 +32,8 @@ function M.setup()
       end,
     },
     mapping = {
-      ['<C-j>'] = cmp.mapping.complete(),
       ['<C-d>'] = cmp.mapping.close(),
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
-      ['<Tab>'] = cmp.mapping.confirm({ select = true }),
       ['<Up>'] = cmp.mapping.select_prev_item(),
       ['<Down>'] = cmp.mapping.select_next_item(),
       ['<C-p>'] = cmp.mapping.select_prev_item(),
