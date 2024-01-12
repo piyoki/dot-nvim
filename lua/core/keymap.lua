@@ -123,6 +123,7 @@ function M.setup()
   utils.map('n', 'gr', "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
   utils.map('n', 'gp', '<cmd>Telescope projects<CR>')
   utils.map('n', 'gP', '<cmd>lua require("telescope").extensions.repo.list{search_dirs = {"~/Workspace"}}<CR>')
+  utils.map('n', 'go', '<cmd>Telescope oldfiles hidden=true prompt_prefix=🔍<CR>')
 
   -- SFM (Simple File Manager)
   utils.map('n', '<C-b>', '<cmd>SFMToggle<CR>')
@@ -153,11 +154,11 @@ function M.setup()
   -- Overwrite default settings
   wk.register({
     Ss = {
-      name = 'Set',
+      name = 'Set relativenumber',
       r = { '<cmd>set relativenumber<CR>', 'Set relativenumber' },
     },
     Su = {
-      name = 'Unset',
+      name = 'Unset relativenumber',
       r = { '<cmd>set norelativenumber<CR>', 'Unset norelativenumber' },
     },
   }, {
@@ -238,6 +239,11 @@ function M.setup()
   -- Formatter
   wk.register({
     F = { '<cmd>Format<CR>', 'Format' },
+  }, { prefix = '<Leader>' })
+
+  -- Recent Files
+  wk.register({
+    o = { '<cmd>Telescope oldfiles hidden=true prompt_prefix=🔍<CR>', 'Telescope Find Recent Files' },
   }, { prefix = '<Leader>' })
 end
 
