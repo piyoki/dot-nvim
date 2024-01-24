@@ -265,6 +265,14 @@ function M.lsp_buf_register(bufnr)
         vim.diagnostic.open_float,
         'LSP Diagonostic',
       },
+      o = {
+        '<cmd>LspStart<CR>',
+        'LSP Start',
+      },
+      O = {
+        '<cmd>LspStop<CR>',
+        'LSP Stop',
+      },
     },
   }, {
     prefix = '<Leader>',

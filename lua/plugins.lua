@@ -85,7 +85,6 @@ return require('packer').startup(function()
     },
   })
   use({ 'ahmedkhalf/project.nvim' })
-  use({ 'startup-nvim/startup.nvim' })
 
   -- searching & filtering
   use({ 'nvim-telescope/telescope.nvim' })

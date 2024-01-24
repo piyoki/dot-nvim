@@ -45,9 +45,6 @@ function tools.setup()
   })
   vim.g.rooter_cd_cmd = 'lcd' -- change each buffer's dir
 
-  -- startup.nvim
-  require('startup').setup(require('config.dashboard'))
-
   -- telescope
   require('telescope').setup({
     defaults = {

@@ -311,11 +311,6 @@ _G.packer_plugins = {
     path = "/home/kev/.local/share/nvim/site/pack/packer/start/sfm.nvim",
     url = "https://github.com/dinhhuy258/sfm.nvim"
   },
-  ["startup.nvim"] = {
-    loaded = true,
-    path = "/home/kev/.local/share/nvim/site/pack/packer/start/startup.nvim",
-    url = "https://github.com/startup-nvim/startup.nvim"
-  },
   tabular = {
     loaded = true,
     path = "/home/kev/.local/share/nvim/site/pack/packer/start/tabular",
