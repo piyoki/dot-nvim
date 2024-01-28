@@ -85,7 +85,6 @@ return require('packer').startup(function()
     },
   })
   use({ 'ahmedkhalf/project.nvim' })
-  use({ 'christoomey/vim-tmux-navigator' })
 
   -- searching & filtering
   use({ 'nvim-telescope/telescope.nvim' })

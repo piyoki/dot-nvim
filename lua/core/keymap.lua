@@ -79,11 +79,6 @@ function M.setup()
   -- utils.map('n', '<S-Right>', ':vertical resize +2<CR>') -- (N) Resize vertical split window +2 to the left
   -- utils.map('n', '<S-Down>', ':horizontal resize -2<CR>') -- (N) Resize horizontal split window +2 to the below
   -- utils.map('n', '<S-Up>', ':horizontal resize +2<CR>') -- (N) Resize horizontal split window -2 to the above
-  --
-  utils.map('n', '<C-Left>', '<cmd>TmuxNavigateLeft<cr>') -- (N) Move cursor to the left window
-  utils.map('n', '<C-Down>', '<cmd>TmuxNavigateDown<cr>') -- (N) Move cursor to the below window
-  utils.map('n', '<C-Up>', '<cmd>TmuxNavigateUp<cr>') -- (N) Move cursor to the above window
-  utils.map('n', '<C-Right>', '<cmd>TmuxNavigateRight<cr>') -- (N) Move cursor to the right window
 
   ----------------------------------------------
 
