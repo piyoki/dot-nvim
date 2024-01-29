@@ -98,8 +98,8 @@ function M.setup()
 
   -- Harpoon
   utils.map('n', 'mm', ":lua require('harpoon.mark').add_file()<CR>") -- (N) Mark current file in harpoon
-  utils.map('n', '<M-k>', ":lua require('harpoon.ui').nav_prev()<CR>") -- (N) Navigate to previous harpoon mark
-  utils.map('n', '<M-j>', ":lua require('harpoon.ui').nav_next()<CR>") -- (N) Navigate to next harpoon mark
+  utils.map('n', '<M-i>', ":lua require('harpoon.ui').nav_prev()<CR>") -- (N) Navigate to previous harpoon mark
+  utils.map('n', '<M-o>', ":lua require('harpoon.ui').nav_next()<CR>") -- (N) Navigate to next harpoon mark
   utils.map('n', '<LEADER>m', ":lua require('harpoon.ui').toggle_quick_menu()<CR>") -- (N) Open up harpoon menu
 
   -- Telescope (Short)
