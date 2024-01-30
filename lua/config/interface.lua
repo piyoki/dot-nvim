@@ -59,7 +59,7 @@ function interface.setup()
   -- custom mod
   require('github-theme').setup({ transparent = true })
   -- general
-  vim.cmd('hi Normal guibg=none') -- enable transparent background
+  -- vim.cmd('hi Normal guibg=none') -- enable transparent background
   vim.cmd(string.format('hi PmenuSel guibg=%s guifg=%s gui=bold', colors.lightpurple, colors.black))
   vim.cmd(string.format('hi PmenuSbar guibg=%s guifg=%s', colors.lightpurle, colors.black))
   vim.cmd(string.format('hi LineNr guifg=%s guibg=none', colors.darkgray))
@@ -74,10 +74,32 @@ function interface.setup()
   vim.cmd(string.format('hi DiagnosticSignInfo guibg=none guifg=%s', colors.lightgreen))
   vim.cmd(string.format('hi DiagnosticSignHint guibg=none guifg=%s', colors.lightyello))
   -- gitsigns
-  vim.cmd('hi SignColumn guibg=none')
+  -- vim.cmd('hi SignColumn guibg=none')
   vim.cmd(string.format('hi DiffAdd guifg=%s guibg=none gui=bold', colors.green))
   vim.cmd(string.format('hi DiffChange guifg=%s guibg=none gui=bold', colors.yellow))
   vim.cmd(string.format('hi DiffDelete guifg=%s guibg=none gui=bold', colors.red))
+
+  -- transparent mod
+  require('transparent').setup({
+    extra_groups = {}, -- table: additional groups that should be cleared
+    exclude_groups = {
+      'PmenuSel',
+      'PmenuSbar',
+      'LineNr',
+      'CursorLineNr',
+      'TelescopeBorder',
+      'FloatBorder',
+      'LazygitBorder',
+      'BufferCurrent',
+      'DiagnosticSignWarn',
+      'DiagnosticSignError',
+      'DiagnosticSignInfo',
+      'DiagnosticSignHint',
+      'DiffAdd',
+      'DiffChange',
+      'DiffDelete',
+    }, -- table: groups you don't want to clear
+  })
 
   -- cursor-word
   vim.cmd('hi default CursorWord cterm=underline gui=bold')
