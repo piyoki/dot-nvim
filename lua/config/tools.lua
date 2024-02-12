@@ -77,7 +77,7 @@ function tools.setup()
 
   -- Fterm
   require('FTerm').setup({
-    cmd = '/usr/bin/fish',
+    cmd = 'fish',
     dimensions = {
       height = 0.9,
       width = 0.9,
