@@ -170,6 +170,16 @@ function M.setup()
           }
         end,
       },
+      -- nix
+      nix = {
+        function()
+          return {
+            exe = 'nixpkgs-fmt',
+            args = {},
+            stdin = true,
+          }
+        end,
+      },
     },
   })
 end
