@@ -9,7 +9,7 @@ return require('packer').startup(function()
   -- colorscheme
   use({ 'projekt0n/github-nvim-theme', tag = 'v0.0.7' })
   use({ 'sam4llis/nvim-tundra' })
-  use({ 'xiyaowong/transparent.nvim' })
+  -- use({ 'xiyaowong/transparent.nvim' })
 
   -- interface
   use({ 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } })

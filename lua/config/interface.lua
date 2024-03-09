@@ -80,26 +80,26 @@ function interface.setup()
   vim.cmd(string.format('hi DiffDelete guifg=%s guibg=none gui=bold', colors.red))
 
   -- transparent mod
-  require('transparent').setup({
-    extra_groups = {}, -- table: additional groups that should be cleared
-    exclude_groups = {
-      'PmenuSel',
-      'PmenuSbar',
-      'LineNr',
-      'CursorLineNr',
-      'TelescopeBorder',
-      'FloatBorder',
-      'LazygitBorder',
-      'BufferCurrent',
-      'DiagnosticSignWarn',
-      'DiagnosticSignError',
-      'DiagnosticSignInfo',
-      'DiagnosticSignHint',
-      'DiffAdd',
-      'DiffChange',
-      'DiffDelete',
-    }, -- table: groups you don't want to clear
-  })
+  -- require('transparent').setup({
+  --   extra_groups = {}, -- table: additional groups that should be cleared
+  --   exclude_groups = {
+  --     'PmenuSel',
+  --     'PmenuSbar',
+  --     'LineNr',
+  --     'CursorLineNr',
+  --     'TelescopeBorder',
+  --     'FloatBorder',
+  --     'LazygitBorder',
+  --     'BufferCurrent',
+  --     'DiagnosticSignWarn',
+  --     'DiagnosticSignError',
+  --     'DiagnosticSignInfo',
+  --     'DiagnosticSignHint',
+  --     'DiffAdd',
+  --     'DiffChange',
+  --     'DiffDelete',
+  --   }, -- table: groups you don't want to clear
+  -- })
 
   -- cursor-word
   vim.cmd('hi default CursorWord cterm=underline gui=bold')
