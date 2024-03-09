@@ -70,6 +70,7 @@ return require('packer').startup(function()
   use({ 'CRAG666/code_runner.nvim' })
   use({ 'kshenoy/vim-signature' })
   use({ 'Exafunction/codeium.vim' })
+  use({ 'github/copilot.vim' })
 
   -- tools
   use({ 'phaazon/hop.nvim' })
