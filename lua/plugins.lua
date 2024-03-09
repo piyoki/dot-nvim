@@ -69,7 +69,7 @@ return require('packer').startup(function()
   use({ 'fraso-dev/nvim-listchars' })
   use({ 'CRAG666/code_runner.nvim' })
   use({ 'kshenoy/vim-signature' })
-  use({ 'Exafunction/codeium.vim' })
+  use({ 'Exafunction/codeium.nvim' })
   use({ 'github/copilot.vim' })
 
   -- tools
