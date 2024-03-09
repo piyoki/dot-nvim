@@ -8,7 +8,7 @@ function M.setup()
   require('ide.treesitter').setup()
   require('ide.lsp').setup()
   require('ide.cmp').setup()
-  require('ide.codium').setup()
+  -- require('ide.codium').setup()
 end
 
 return M
