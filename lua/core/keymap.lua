@@ -30,16 +30,16 @@ function M.setup()
   utils.map('v', '<C-a>', '0', opts) -- (V) Move current cursor to the beginning of line
   utils.map('i', '<C-e>', '<C-o>$', opts) -- (I) Move current cursor to the end of line
   utils.map('i', '<C-a>', '<C-o>0', opts) -- (I) Move current cursor to the beginning of line
-  utils.map('n', '<C-d>', '<C-d>zz', opts) -- (N) Move to next page
-  utils.map('n', '<C-u>', '<C-u>zz', opts) -- (N) Move to previous page
+  utils.map('n', '<C-d>', 'z+zz', opts) -- (N) Move page down
+  utils.map('n', '<C-u>', 'z^zz', opts) -- (N) Move page up
   utils.map('n', 'n', 'nzzzv', opts) -- (N) Move to next keyword
   utils.map('n', 'N', 'Nzzzv', opts) -- (N) Move to previous keyword
 
   -- Move lines around
   utils.map('n', '<S-Up>', ':m-2<CR>', opts) -- (N) Move current line upward
   utils.map('n', '<S-Down>', ':m+<CR>', opts) -- (N) Move current line downward
-  utils.map('i', '<S-Up>', '<Esc>:m-2<CR>', opts) -- (N) Move current line upward
-  utils.map('i', '<S-Down>', '<Esc>:m+<CR>', opts) -- (N) Move current line downward
+  utils.map('i', '<S-Up>', '<Esc>:m-2<CR>', opts) -- (I) Move current line upward
+  utils.map('i', '<S-Down>', '<Esc>:m+<CR>', opts) -- (I) Move current line downward
 
   -- Spell Check
   utils.map('n', 'sc', '<cmd>set spell!<CR>') -- Enable spellcheck

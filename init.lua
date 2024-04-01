@@ -5,7 +5,7 @@
 -- |_|  |_|\__, | |_|\__,_|\__,_|_|_| |_|_|\__|
 --         |___/
 
--- Author: Kevin Yu (@github.com/yqlbu)
+-- Author: Kevin Yu (@github.com/miooochi)
 
 local fn = vim.fn
 local cmd = vim.cmd
