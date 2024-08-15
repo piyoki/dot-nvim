@@ -237,7 +237,7 @@ function M.lsp_buf_register(bufnr)
     { '<Leader>le', 'vim.diagnostic.open_float', desc = 'LSP Diagonostic' },
     { '<Leader>lo', '<cmd>LspStart<CR>', desc = 'LSP Start' },
     { '<Leader>lO', '<cmd>LspStop<CR>', desc = 'LSP Stop' },
-    { prefix = '<Leader>', buffer = bufnr },
+    { buffer = bufnr },
   })
 
   -- LSP
