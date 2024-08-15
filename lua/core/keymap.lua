@@ -231,67 +231,25 @@ end
 ----------------------------------------------
 -- LSP
 function M.lsp_buf_register(bufnr)
-  wk.register({
-    l = {
-      name = 'LSP',
-      a = {
-        vim.lsp.buf.code_action,
-        'LSP Code Actions',
-      },
-      s = {
-        telescope_builtin.lsp_document_symbols,
-        'LSP Document Symbols',
-      },
-      e = {
-        vim.diagnostic.open_float,
-        'LSP Diagonostic',
-      },
-      o = {
-        '<cmd>LspStart<CR>',
-        'LSP Start',
-      },
-      O = {
-        '<cmd>LspStop<CR>',
-        'LSP Stop',
-      },
-    },
-  }, {
-    prefix = '<Leader>',
-    buffer = bufnr,
+  wk.add({
+    { '<Leader>la', 'vim.lsp.buf.code_action', desc = 'LSP Code Actions' },
+    { '<Leader>ls', 'telescope_builtin.lsp_document_symbols', desc = 'LSP Document Symbols' },
+    { '<Leader>le', 'vim.diagnostic.open_float', desc = 'LSP Diagonostic' },
+    { '<Leader>lo', '<cmd>LspStart<CR>', desc = 'LSP Start' },
+    { '<Leader>lO', '<cmd>LspStop<CR>', desc = 'LSP Stop' },
+    { prefix = '<Leader>', buffer = bufnr },
   })
 
   -- LSP
-  wk.register({
-    gd = {
-      vim.lsp.buf.definition,
-      'LSP Definitions',
-    },
-    gi = {
-      vim.lsp.buf.implementation,
-      'LSP Implementations',
-    },
-    gD = {
-      vim.lsp.buf.type_definition,
-      'LSP Declaration',
-    },
-    gR = {
-      vim.lsp.buf.references,
-      'LSP References',
-    },
-    gt = {
-      vim.lsp.buf.type_definition,
-      'LSP Type Definitions',
-    },
-    K = {
-      vim.lsp.buf.hover,
-      'LSP Hover',
-    },
-    ['<C-k>'] = {
-      builtin_lsp.peek,
-      'Lsp Peek',
-    },
-  }, {
-    buffer = bufnr,
+  wk.add({
+    { '<Leader>gd', 'vim.lsp.buf.definition', desc = 'LSP Definitions' },
+    { '<Leader>gi', 'vim.lsp.buf.implementation', desc = 'LSP Implementations' },
+    { '<Leader>gD', 'vim.lsp.buf.type_definition', desc = 'LSP Declaration' },
+    { '<Leader>gR', 'vim.lsp.buf.references', desc = 'LSP References' },
+    { '<Leader>gt', 'vim.lsp.buf.type_definition', desc = 'LSP Type Definitions' },
+    { '<Leader>K', 'vim.lsp.buf.hover', desc = 'LSP Hover' },
+    { '<C-k>', 'builtin_lsp.peek', desc = 'Lsp Peek' },
+    { buffer = bufnr },
   })
 end
 
