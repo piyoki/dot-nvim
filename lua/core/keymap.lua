@@ -125,115 +125,107 @@ function M.setup()
   vim.keymap.set('i', '<C-x>', '<cmd>call codeium#Clear()<CR>')
 
   -- Git
-  wk.register({
-    gd = {
-      name = 'GitDiff',
-      o = { '<cmd>DiffviewOpen<CR>', 'DiffviewOpen' },
-      c = { '<cmd>DiffviewClose<CR>', 'DiffviewClose' },
-      f = { '<cmd>DiffviewFileHistory<CR>', 'DiffviewFileHistory' },
-    },
-    g = {
-      b = { '<cmd>GitBlameToggle<CR>', 'GitBlameToggle' },
-      g = { '<cmd>LazyGit<CR>', 'LazyGit' },
-    },
-  }, {
-    prefix = '<Leader>',
+  wk.add({
+    { '<Leader>gdo', '<cmd>DiffviewOpen<CR>', desc = 'DiffviewOpen' },
+    { '<Leader>gdc', '<cmd>DiffviewClose<CR>', desc = 'DiffviewClose' },
+    { '<Leader>gdf', '<cmd>DiffviewFileHistory<CR>', desc = 'DiffviewFileHistory' },
+    { '<Leader>gb', '<cmd>GitBlameToggle<CR>', desc = 'GitBlameToggle' },
+    { '<Leader>gg', '<cmd>LazyGit<CR>', desc = 'LazyGit' },
   })
 
   -- Overwrite default settings
-  wk.register({
-    Ss = {
-      name = 'Set relativenumber',
-      r = { '<cmd>set relativenumber<CR>', 'Set relativenumber' },
-    },
-    Su = {
-      name = 'Unset relativenumber',
-      r = { '<cmd>set norelativenumber<CR>', 'Unset norelativenumber' },
-    },
-  }, {
-    prefix = '<Leader>',
+  wk.add({
+    { '<Leader>Ss', '<cmd>set relativenumber<CR>', desc = 'Set relativenumber' },
+    { '<Leader>Su', '<cmd>set norelativenumber<CR>', desc = 'Unset norelativenumber' },
   })
 
   -- Markdown toc
-  wk.register({
-    T = {
-      '<cmd>:GenTocGFM<CR>',
-      'Set Generate markdown toc',
-    },
-  }, {
-    prefix = '<Leader>',
+  wk.add({
+    { '<Leader>T', '<cmd>:GenTocGFM<CR>', desc = 'Set Generate markdown toc' },
   })
 
   -- CodeRunner
-  wk.register({
-    r = {
-      name = 'CodeRunner',
-      c = { '<cmd>RunCode<CR>', 'Run based on file type' },
-      x = { '<cmd>RunClose<CR>', 'Close runner' },
-      f = { '<cmd>RunFile<CR>', 'Run currrent file' },
-    },
-  }, {
-    prefix = '<Leader>',
+  wk.add({
+    { '<Leader>rc', '<cmd>RunCode<CR>', desc = 'Run based on file type' },
+    { '<Leader>rx', '<cmd>RunClose<CR>', desc = 'Close runner' },
+    { '<Leader>rf', '<cmd>RunFile<CR>', desc = 'Run currrent file' },
   })
 
   -- Barbar
-  wk.register({
-    b = {
-      name = 'Buffer',
-      p = { '<cmd>BufferPick<CR>', 'BufferPick' },
-      q = { '<cmd>BufferClose<CR>', 'BufferClose' },
-      o = { '<cmd>BufferOrderByBufferNumber<CR>', 'BufferOrder ByNumber' },
-      O = { '<cmd>BufferCloseAllButCurrent<CR>', 'BufferCloseAll ButCurrent' },
-      h = { '<cmd>BufferMovePrevious<CR>', 'BufferMove Previous' },
-      l = { '<cmd>BufferMoveNext<CR>', 'BufferMove Next' },
-      H = { '<cmd>BufferCloseBuffersLeft<CR>', 'BufferClose Left' },
-      L = { '<cmd>BufferCloseBuffersRight<CR>', 'BufferClose Right' },
-      P = { '<cmd>BufferPrevious<CR>', 'BufferPrevious' },
-      N = { '<cmd>BufferNext<CR>', 'BufferNext' },
-    },
-    q = { '<cmd>BufferClose<CR>', 'BufferClose' },
-  }, {
-    prefix = '<Leader>',
+  wk.add({
+    { '<Leader>bp', '<cmd>BufferPick<CR>', desc = 'BufferPick' },
+    { '<Leader>bq', '<cmd>BufferClose<CR>', desc = 'BufferClose' },
+    { '<Leader>bo', '<cmd>BufferOrderByBufferNumber<CR>', desc = 'BufferOrder ByNumber' },
+    { '<Leader>bO', '<cmd>BufferCloseAllButCurrent<CR>', desc = 'BufferCloseAll ButCurrent' },
+    { '<Leader>bh', '<cmd>BufferMovePrevious<CR>', desc = 'BufferMove Previous' },
+    { '<Leader>bl', '<cmd>BufferMoveNext<CR>', desc = 'BufferMove Next' },
+    { '<Leader>bH', '<cmd>BufferCloseBuffersLeft<CR>', desc = 'BufferClose Left' },
+    { '<Leader>bL', '<cmd>BufferCloseBuffersRight<CR>', desc = 'BufferClose Right' },
+    { '<Leader>bP', '<cmd>BufferPrevious<CR>', desc = 'BufferPrevious' },
+    { '<Leader>bN', '<cmd>BufferNext<CR>', desc = 'BufferNext' },
+    { '<Leader>bq', '<cmd>BufferClose<CR>', desc = 'BufferClose' },
   })
 
   ----------------------------------------------
   -- Telescope
-  wk.register({
-    f = {
-      name = 'Find',
-      a = { '<cmd>Telescope builtin prompt_prefix=🔍<CR>', 'Telescope Builtin' },
-      b = { '<cmd>Telescope buffers prompt_prefix=🔍<CR>', 'Telescope Buffers' },
-      l = { '<cmd>Telescope current_buffer_fuzzy_find prompt_prefix=🔍<CR>', 'Telescope Buffer Search' },
-      f = { '<cmd>Telescope find_files hidden=true prompt_prefix=🔍<CR>', 'Telescope Find Files' },
-      F = { '<cmd>Telescope oldfiles hidden=true prompt_prefix=🔍<CR>', 'Telescope Find Recent Files' },
-      g = { '<cmd>Telescope git_commits prompt_prefix=🔍<CR>', 'Telescope Git Commits' },
-      H = { '<cmd>Telescope help_tags prompt_prefix=🔍<CR>', 'Telescope Help' },
-      j = { '<cmd>Telescope jumplist prompt_prefix=🔍<CR>', 'Telescope Jump List' },
-      k = { '<cmd>Telescope keymaps prompt_prefix=🔍<CR>', 'Telescope Keymaps' },
-      e = { '<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>', 'Telescope File Browser' },
-      s = { '<cmd>Telescope live_grep prompt_prefix=🔍<CR>', 'Telescope Live Grep' },
-      d = { '<cmd>Telescope diagnostics prompt_prefix=🔍<CR>', 'Telescope Diagonostics' },
-      m = { '<cmd>Telescope marks prompt_prefix=🔍<CR>', 'Telescope Marks' },
-      p = { '<cmd>Telescope projects prompt_prefix=🔍<CR>', 'Telescope Recent Projects' },
-      P = {
-        '<cmd>Telescope repo list search_dirs=~/Workspace hidden=true prompt_prefix=🔍<CR>',
-        'Telescope Find Projects',
-      },
-      h = { '<cmd>Telescope highlights prompt_prefix=🔍<CR>', 'Telescope Diagonostics' },
+  wk.add({
+    { '<Leader>fb', '<cmd>Telescope buffers prompt_prefix=🔍<CR>', desc = 'Telescope Buffers' },
+    {
+      '<Leader>fl',
+      '<cmd>Telescope current_buffer_fuzzy_find prompt_prefix=🔍<CR>',
+      desc = 'Telescope Buffer Search',
     },
-  }, {
-    prefix = '<Leader>',
+    { '<Leader>ff', '<cmd>Telescope find_files hidden=true prompt_prefix=🔍<CR>', desc = 'Telescope Find Files' },
+    {
+      '<Leader>fF',
+      '<cmd>Telescope oldfiles hidden=true prompt_prefix=🔍<CR>',
+      desc = 'Telescope Find Recent Files',
+    },
+    { '<Leader>fg', '<cmd>Telescope git_commits prompt_prefix=🔍<CR>', desc = 'Telescope Git Commits' },
+    { '<Leader>fH', '<cmd>Telescope help_tags prompt_prefix=🔍<CR>', desc = 'Telescope Help' },
+    { '<Leader>fj', '<cmd>Telescope jumplist prompt_prefix=🔍<CR>', desc = 'Telescope Jump List' },
+    { '<Leader>fk', '<cmd>Telescope keymaps prompt_prefix=🔍<CR>', desc = 'Telescope Keymaps' },
+    { '<Leader>fe', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>', desc = 'Telescope File Browser' },
+    { '<Leader>fs', '<cmd>Telescope live_grep prompt_prefix=🔍<CR>', desc = 'Telescope Live Grep' },
+    { '<Leader>fd', '<cmd>Telescope diagnostics prompt_prefix=🔍<CR>', desc = 'Telescope Diagonostics' },
+    { '<Leader>fm', '<cmd>Telescope marks prompt_prefix=🔍<CR>', desc = 'Telescope Marks' },
+    { '<Leader>fp', '<cmd>Telescope projects prompt_prefix=🔍<CR>', desc = 'Telescope Recent Projects' },
+    {
+      '<Leader>fP',
+      '<cmd>Telescope repo list search_dirs=~/Workspace hidden=true prompt_prefix=🔍<CR>',
+      desc = 'Telescope Find Projects',
+    },
+    { '<Leader>fh', '<cmd>Telescope highlights prompt_prefix=🔍<CR>', desc = 'Telescope Highlights' },
   })
 
   -- Formatter
-  wk.register({
-    F = { '<cmd>Format<CR>', 'Format' },
-  }, { prefix = '<Leader>' })
+  wk.add({
+    { '<Leader>F', '<cmd>Format<CR>', desc = 'Format' },
+  })
 
   -- Recent Files
-  wk.register({
-    o = { '<cmd>Telescope oldfiles hidden=true prompt_prefix=🔍<CR>', 'Telescope Find Recent Files' },
-  }, { prefix = '<Leader>' })
+  wk.add({
+    { '<Leader>o', '<cmd>Telescope oldfiles hidden=true prompt_prefix=🔍<CR>', desc = 'Telescope Find Recent Files' },
+  })
+
+  -- GitHub Copilots
+  wk.add({
+    {
+      '<leader>ccc',
+      '<cmd>CopilotChat<CR>',
+      desc = 'CopilotChat - OpenChat',
+    },
+    {
+      '<leader>ccq',
+      function()
+        local input = vim.fn.input('Quick Chat: ')
+        if input ~= '' then
+          require('CopilotChat').ask(input, { selection = require('CopilotChat.select').buffer })
+        end
+      end,
+      desc = 'CopilotChat - QuickChat',
+    },
+  })
 end
 
 ----------------------------------------------
