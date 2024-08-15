@@ -9,6 +9,7 @@ function M.setup()
   require('ide.lsp').setup()
   require('ide.cmp').setup()
   -- require('ide.codium').setup()
+  require('ide.copilot').setup()
 end
 
 return M
