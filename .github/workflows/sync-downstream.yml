@@ -36,11 +36,9 @@ jobs:
           owner: ${{ github.repository_owner }}
           repo: ${{ env.DOWNSTREAM_REPO }}
           github_token: ${{ steps.generate_token.outputs.token }}
-          github_user: ${{ github.repository_owner }}
           workflow_file_name: ${{ env.WORKFLOW_FILE }}
           ref: ${{ env.WORKFLOW_BRANCH }}
           client_payload: '{"target":"${{ steps.sync_target.outputs.TARGET }}","branch":"${{ env.REF }}"}'
           trigger_workflow: true
           propagate_failure: false
-          wait_interval: 60
-          wait_workflow: true
+          wait_workflow: false
