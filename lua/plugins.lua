@@ -71,6 +71,7 @@ return require('packer').startup(function()
   use({ 'kshenoy/vim-signature' })
   -- use({ 'Exafunction/codeium.nvim' })
   use({ 'github/copilot.vim' })
+  use({ 'CopilotC-Nvim/CopilotChat.nvim', branch = 'canary', opts = { debug = true } })
 
   -- tools
   use({ 'phaazon/hop.nvim' })
