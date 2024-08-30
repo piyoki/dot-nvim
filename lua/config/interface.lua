@@ -3,16 +3,17 @@ local interface = {}
 function interface.setup()
   -- color palette
   local colors = {
-    black = '#1F2335',
-    red = '#f97583',
-    blue = '#82AAFF',
-    green = '#6FFF68',
-    lightgreen = '#DAFDBA',
-    yellow = '#F2C12E',
-    lightyellow = '#FFFFBA',
+    black = '#1f2335',
+    red = '#a8000e',
+    blue = '#0476d9',
+    green = '#6fff68',
+    lightgreen = '#aee899',
+    lightblue = '#88abf2',
+    yellow = '#f2c12e',
+    lightyellow = '#ffffba',
     purple = '#b392f0',
     lightpurple = '#ccccff',
-    darkgray = '#3D3D3D',
+    darkgray = '#3d3d3d',
     lightgray = '#504945',
     white = '#d9d9d9',
     none = 'none',
@@ -39,6 +40,11 @@ function interface.setup()
     signs = {
       add = { text = '+' },
       change = { text = '~' },
+      delete = { text = '-' },
+    },
+    signs_staged = {
+      add = { text = '┃' },
+      change = { text = '┃' },
       delete = { text = '-' },
     },
     signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
@@ -73,11 +79,15 @@ function interface.setup()
   vim.cmd(string.format('hi DiagnosticSignError guibg=none guifg=%s', colors.red))
   vim.cmd(string.format('hi DiagnosticSignInfo guibg=none guifg=%s', colors.lightgreen))
   vim.cmd(string.format('hi DiagnosticSignHint guibg=none guifg=%s', colors.lightyello))
+
   -- gitsigns
   -- vim.cmd('hi SignColumn guibg=none')
-  vim.cmd(string.format('hi DiffAdd guifg=%s guibg=none gui=bold', colors.green))
-  vim.cmd(string.format('hi DiffChange guifg=%s guibg=none gui=bold', colors.yellow))
-  vim.cmd(string.format('hi DiffDelete guifg=%s guibg=none gui=bold', colors.red))
+  vim.cmd(string.format('hi GitSignsAdd guifg=%s guibg=none', colors.lightgreen))
+  vim.cmd(string.format('hi GitSignsChange guifg=%s guibg=none', colors.lightblue))
+  vim.cmd(string.format('hi GitSignsDelete guifg=%s guibg=none', colors.red))
+  vim.cmd(string.format('hi GitSignsStagedAdd guifg=%s guibg=none', colors.lightgreen))
+  vim.cmd(string.format('hi GitSignsStagedChange guifg=%s guibg=none', colors.lightblue))
+  vim.cmd(string.format('hi GitSignsStagedDelete guifg=%s guibg=none', colors.red))
 
   -- transparent mod
   -- require('transparent').setup({
