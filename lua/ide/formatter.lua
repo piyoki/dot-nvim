@@ -5,8 +5,12 @@ local util = require('formatter.util')
 
 function M.setup()
   formatter.setup({
+    -- Enable or disable logging
+    logging = true,
+    -- Set the log level
+    log_level = vim.log.levels.DEBUG,
     filetype = {
-      -- markdown formatter
+      -- markdown
       markdown = {
         function()
           return {
@@ -20,7 +24,7 @@ function M.setup()
           }
         end,
       },
-      -- json formatter
+      -- json
       json = {
         function()
           return {
@@ -47,7 +51,7 @@ function M.setup()
           }
         end,
       },
-      -- hcl formatter
+      -- hcl
       hcl = {
         function()
           return {
@@ -57,7 +61,7 @@ function M.setup()
           }
         end,
       },
-      -- terraform formatter
+      -- terraform
       terraform = {
         function()
           return {
@@ -67,7 +71,7 @@ function M.setup()
           }
         end,
       },
-      -- golang formatter
+      -- golang
       go = {
         function()
           return {
@@ -76,7 +80,7 @@ function M.setup()
           }
         end,
       },
-      -- lua formatter
+      -- lua
       lua = {
         function()
           return {
@@ -92,7 +96,7 @@ function M.setup()
           }
         end,
       },
-      -- shell script formatter
+      -- shell
       sh = {
         function()
           return {
@@ -102,7 +106,7 @@ function M.setup()
           }
         end,
       },
-      -- nodejs formatter
+      -- nodejs
       javascript = {
         function()
           return {
@@ -129,7 +133,7 @@ function M.setup()
           }
         end,
       },
-      -- python formatter
+      -- python
       python = {
         function()
           return {
@@ -139,7 +143,7 @@ function M.setup()
           }
         end,
       },
-      -- ruby formatter
+      -- ruby
       ruby = {
         function()
           return {
@@ -179,6 +183,37 @@ function M.setup()
             stdin = true,
           }
         end,
+      },
+      -- cmake
+      cmake = {
+        function()
+          return {
+            exe = 'cmake-format',
+            args = { '-' },
+            stdin = true,
+          }
+        end,
+      },
+      -- c
+      c = {
+        require('formatter.filetypes.c').clangformat,
+      },
+      -- rust
+      rust = {
+        function()
+          return {
+            exe = 'rustfmt',
+            args = { '--edition 2021' },
+            stdin = true,
+          }
+        end,
+      },
+      -- Use the special "*" filetype for defining formatter configurations on
+      -- any filetype
+      ['*'] = {
+        -- "formatter.filetypes.any" defines default configurations for any
+        -- filetype
+        require('formatter.filetypes.any').remove_trailing_whitespace,
       },
     },
   })
