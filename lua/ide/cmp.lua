@@ -9,8 +9,10 @@ function M.setup()
 
   local cmp_snippet_sources = {
     { name = 'nvim_lsp' }, -- nvim-cmp source for neovim's built-in language server client
+    { name = 'nvim_lua' }, -- For neovim lua api
     { name = 'luasnip' }, -- For luasnip users
-    { { name = 'buffer' } },
+    { name = 'path' }, -- For path completion
+    { name = 'buffer' }, -- For buffer completion
   }
 
   cmp.setup({
