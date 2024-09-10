@@ -3,16 +3,6 @@ local M = {}
 local telescope = require('telescope')
 
 function M.setup()
-  require('telescope').setup({
-    extensions = {
-      repo = {
-        settings = {
-          auto_lcd = true,
-        },
-      },
-    },
-  })
-
   telescope.setup({
     defaults = {
       defaults = require('telescope.themes').get_ivy(),
@@ -29,12 +19,16 @@ function M.setup()
         hidden = true,
       },
     },
-  })
-  telescope.setup({
     extensions = {
+      repo = {
+        settings = {
+          auto_lcd = true,
+        },
+      },
       ['ui-select'] = { require('telescope.themes').get_dropdown({}) },
     },
   })
+
   telescope.load_extension('ui-select')
   telescope.load_extension('fzf')
   telescope.load_extension('file_browser')
