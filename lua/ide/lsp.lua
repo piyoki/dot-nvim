@@ -1,152 +1,81 @@
 local M = {}
 
+local telescope = require('telescope.builtin')
 local lspconfig = require('lspconfig')
-local schemastore = require('schemastore')
-local cmp_nvim_lsp = require('cmp_nvim_lsp')
-local keymap = require('core.keymap')
-local builtin_lsp = require('builtin.lsp')
-local lsp_servers = require('builtin.lsp').lsp_servers
 
-local get_on_attach = function(disable_formatting)
-  return function(client, bufnr)
-    if disable_formatting then
-      client.server_capabilities.document_formatting = false
-      client.server_capabilities.document_range_formatting = false
-    end
+local on_attach = function(_, _)
+  vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {})
+  vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
 
-    keymap.lsp_buf_register(bufnr)
-  end
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, {})
+  vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, {})
+  -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, {})
+  vim.keymap.set('n', 'gr', telescope.lsp_references, {})
+  vim.keymap.set('n', '<C-e>', vim.diagnostic.open_float)
 end
 
-local setup_lsp_installer = function()
-  builtin_lsp
-    .setup({
-      capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities()),
-    }, {
-      get_on_attach = get_on_attach,
-    })
-    .startup(function(use)
-      use('bashls')
-      use('cssmodules_ls')
-      use('dockerls')
-      use('docker_compose_language_service')
-      use('tflint')
-      use('nil_ls')
-      use('emmet_ls')
-      use('gopls')
-      use('pyright')
-      use('terraformls')
-      use('vimls')
-      use('golangci_lint_ls')
-      use('ansiblels', {
-        autostart = true,
-      })
-      use('graphql', {
-        single_file_support = true,
-      })
-      use('eslint', {
-        handlers = {
-          ['eslint/noLibrary'] = function()
-            return {}
-          end,
-        },
-      })
-      use('html', {
-        disable_formatting = true,
-      })
-      use('tailwindcss', {
-        single_file_support = true,
-      })
-      use('cssls', {
-        settings = {
-          css = {
-            validate = false,
-          },
-          less = {
-            validate = false,
-          },
-          scss = {
-            validate = false,
-          },
-        },
-      })
-      use('tsserver', {
-        disable_formatting = true,
-        init_options = {
-          preferences = {
-            disableSuggestions = true,
-            includeCompletionsForImportStatements = true,
-            importModuleSpecifierPreference = 'shortest',
-            lazyConfiguredProjectsFromExternalProject = true,
-          },
-        },
-      })
-      use('jsonls', {
-        disable_formatting = true,
-        settings = {
-          json = {
-            schemas = schemastore.json.schemas(),
-          },
-        },
-        get_language_id = function()
-          return 'jsonc'
-        end,
-      })
-      use('yamlls', {
-        disable_formatting = true,
-        settings = {
-          yaml = {
-            validate = false,
-            hover = true,
-            completion = true,
-          },
-        },
-      })
-      use('lua_ls', {}, function(opts)
-        require('neodev').setup({})
-        lspconfig.lua_ls.setup(opts)
-      end)
-      use('rust_analyzer', {
-        settings = {
-          ['rust-analyzer'] = {
-            diagnostics = {
-              disabled = {
-                'incorrect-ident-case',
-                'inactive-code',
-              },
-            },
-          },
-        },
-      })
-    end)
-
-  require('mason').setup()
-
-  require('mason-lspconfig').setup({
-    ensure_installed = builtin_lsp.all(),
-    automatic_installation = true,
-  })
-
-  for _, lsp in pairs(lsp_servers) do
-    local config = builtin_lsp.find(lsp.name)
-
-    if config.setup then
-      config.setup(config.opts)
-    else
-      lspconfig[lsp.name].setup(config.opts)
-    end
-  end
-end
-
-function M.setup()
-  setup_lsp_installer()
-
+local setup_diagonstic = function()
   vim.diagnostic.config({
     update_in_insert = true,
     severity_sort = true,
     virtual_text = { source = 'always' },
     float = { source = 'always' },
   })
+end
+
+local setup_lsp_installer = function()
+  require('mason').setup()
+  require('mason-lspconfig').setup({
+    -- Installed manually on system (Nix)
+    -- Check with :LspLog to see if it causes any issues by NixOS, if so, install lsp, linter, formatter via Nix
+    ensure_installed = {},
+    automatic_installation = false,
+  })
+end
+
+local setup_lsp_servers = function()
+  -- Set up lsp servers via lspconfig
+  lspconfig.ansiblels.setup({})
+  lspconfig.bashls.setup({})
+  lspconfig.bufls.setup({})
+  lspconfig.clangd.setup({})
+  lspconfig.cmake.setup({})
+  lspconfig.docker_compose_language_service.setup({})
+  lspconfig.dockerls.setup({})
+  lspconfig.emmet_ls.setup({})
+  lspconfig.gopls.setup({})
+  lspconfig.graphql.setup({})
+  lspconfig.jdtls.setup({})
+  lspconfig.jsonls.setup({})
+  lspconfig.lua_ls.setup({})
+  lspconfig.marksman.setup({})
+  lspconfig.nil_ls.setup({})
+  lspconfig.pyright.setup({})
+  lspconfig.rust_analyzer.setup({})
+  lspconfig.sqls.setup({})
+  lspconfig.tailwindcss.setup({})
+  lspconfig.terraformls.setup({})
+  lspconfig.ts_ls.setup({})
+  lspconfig.yamlls.setup({})
+
+  -- Not available with native binary
+  lspconfig.cssls.setup({})
+  lspconfig.cssmodules_ls.setup({})
+  lspconfig.html.setup({})
+
+  -- Set up linters via lspconfig
+  lspconfig.eslint.setup({})
+  lspconfig.golangci_lint_ls.setup({})
+  lspconfig.tflint.setup({})
+end
+
+function M.setup()
+  setup_diagonstic()
+  setup_lsp_installer()
+  setup_lsp_servers()
+  on_attach()
 end
 
 return M

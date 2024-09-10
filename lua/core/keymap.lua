@@ -109,7 +109,7 @@ function M.setup()
     '<cmd>Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case prompt_prefix=🔍<CR>'
   )
   utils.map('n', '<C-f>', '<cmd>Telescope find_files hidden=true prompt_prefix=🔍<CR>')
-  utils.map('n', 'gr', "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+  utils.map('n', 'glr', "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
   utils.map('n', 'gp', '<cmd>Telescope projects<CR>')
   utils.map('n', 'gP', '<cmd>lua require("telescope").extensions.repo.list{search_dirs = {"~/Workspace"}}<CR>')
   utils.map('n', 'go', '<cmd>Telescope oldfiles hidden=true prompt_prefix=🔍<CR>')
@@ -230,27 +230,27 @@ end
 
 ----------------------------------------------
 -- LSP
-function M.lsp_buf_register(bufnr)
-  wk.add({
-    { '<Leader>la', 'vim.lsp.buf.code_action', desc = 'LSP Code Actions' },
-    { '<Leader>ls', 'telescope_builtin.lsp_document_symbols', desc = 'LSP Document Symbols' },
-    { '<Leader>le', 'vim.diagnostic.open_float', desc = 'LSP Diagonostic' },
-    { '<Leader>lo', '<cmd>LspStart<CR>', desc = 'LSP Start' },
-    { '<Leader>lO', '<cmd>LspStop<CR>', desc = 'LSP Stop' },
-    { buffer = bufnr },
-  })
-
-  -- LSP
-  wk.add({
-    { '<Leader>gd', 'vim.lsp.buf.definition', desc = 'LSP Definitions' },
-    { '<Leader>gi', 'vim.lsp.buf.implementation', desc = 'LSP Implementations' },
-    { '<Leader>gD', 'vim.lsp.buf.type_definition', desc = 'LSP Declaration' },
-    { '<Leader>gR', 'vim.lsp.buf.references', desc = 'LSP References' },
-    { '<Leader>gt', 'vim.lsp.buf.type_definition', desc = 'LSP Type Definitions' },
-    { '<Leader>K', 'vim.lsp.buf.hover', desc = 'LSP Hover' },
-    { '<C-k>', 'builtin_lsp.peek', desc = 'Lsp Peek' },
-    { buffer = bufnr },
-  })
-end
+-- function M.lsp_buf_register(bufnr)
+--   wk.add({
+--     { '<Leader>ca', 'vim.lsp.buf.code_action', desc = 'LSP Code Actions' },
+--     { '<Leader>ls', 'telescope_builtin.lsp_document_symbols', desc = 'LSP Document Symbols' },
+--     { '<Leader>le', 'vim.diagnostic.open_float', desc = 'LSP Diagonostic' },
+--     { '<Leader>lo', '<cmd>LspStart<CR>', desc = 'LSP Start' },
+--     { '<Leader>lO', '<cmd>LspStop<CR>', desc = 'LSP Stop' },
+--     { buffer = bufnr },
+--   })
+--
+--   -- LSP
+--   wk.add({
+--     { '<Leader>gd', 'vim.lsp.buf.definition', desc = 'LSP Definitions' },
+--     { '<Leader>gi', 'vim.lsp.buf.implementation', desc = 'LSP Implementations' },
+--     { '<Leader>gD', 'vim.lsp.buf.type_definition', desc = 'LSP Declaration' },
+--     { '<Leader>gR', 'vim.lsp.buf.references', desc = 'LSP References' },
+--     { '<Leader>gt', 'vim.lsp.buf.type_definition', desc = 'LSP Type Definitions' },
+--     { '<Leader>K', 'vim.lsp.buf.hover', desc = 'LSP Hover' },
+--     { '<C-k>', 'builtin_lsp.peek', desc = 'Lsp Peek' },
+--     { buffer = bufnr },
+--   })
+-- end
 
 return M
