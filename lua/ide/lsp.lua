@@ -71,10 +71,20 @@ local setup_lsp_servers = function()
   lspconfig.tflint.setup({})
 end
 
+local setup_telescope_extensions = function()
+  require('telescope').setup({
+    extensions = {
+      ['ui-select'] = { require('telescope.themes').get_dropdown({}) },
+    },
+  })
+  require('telescope').load_extension('ui-select')
+end
+
 function M.setup()
   setup_diagonstic()
   setup_lsp_installer()
   setup_lsp_servers()
+  setup_telescope_extensions()
   on_attach()
 end
 

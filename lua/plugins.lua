@@ -94,6 +94,7 @@ return require('packer').startup(function()
   use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
   use({ 'nvim-telescope/telescope-file-browser.nvim' })
   use({ 'nvim-telescope/telescope-live-grep-args.nvim' })
+  use({ 'nvim-telescope/telescope-ui-select.nvim' })
   use({ 'cljoly/telescope-repo.nvim' })
   use({ 'haya14busa/incsearch.vim' })
 
