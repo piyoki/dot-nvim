@@ -49,7 +49,15 @@ local setup_lsp_servers = function()
   lspconfig.graphql.setup({})
   lspconfig.jdtls.setup({})
   lspconfig.jsonls.setup({})
-  lspconfig.lua_ls.setup({})
+  lspconfig.lua_ls.setup({
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = { 'vim' },
+        },
+      },
+    },
+  })
   lspconfig.marksman.setup({})
   lspconfig.nil_ls.setup({})
   lspconfig.pyright.setup({})
@@ -71,20 +79,10 @@ local setup_lsp_servers = function()
   lspconfig.tflint.setup({})
 end
 
-local setup_telescope_extensions = function()
-  require('telescope').setup({
-    extensions = {
-      ['ui-select'] = { require('telescope.themes').get_dropdown({}) },
-    },
-  })
-  require('telescope').load_extension('ui-select')
-end
-
 function M.setup()
   setup_diagonstic()
   setup_lsp_installer()
   setup_lsp_servers()
-  setup_telescope_extensions()
   on_attach()
 end
 
