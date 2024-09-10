@@ -1,6 +1,6 @@
-local tools = {}
+local M = {}
 
-function tools.setup()
+function M.setup()
   -- hop
   require('hop').setup()
 
@@ -33,44 +33,6 @@ function tools.setup()
   -- project
   require('project_nvim').setup({})
 
-  -- telescope.repo
-  require('telescope').setup({
-    extensions = {
-      repo = {
-        settings = {
-          auto_lcd = true,
-        },
-      },
-    },
-  })
-  vim.g.rooter_cd_cmd = 'lcd' -- change each buffer's dir
-
-  -- telescope
-  require('telescope').setup({
-    defaults = {
-      defaults = require('telescope.themes').get_ivy(),
-      file_ignore_patterns = { 'node_modules/', '.git/' },
-    },
-    pickers = {
-      find_files = {
-        find_command = { 'fd', '--type', 'f', '--strip-cwd-prefix' },
-        hidden = true,
-      },
-      file_browser = {
-        theme = 'ivy',
-        hijack_netrw = true,
-        hidden = true,
-      },
-    },
-  })
-  require('telescope').load_extension('fzf')
-  require('telescope').load_extension('file_browser')
-  require('telescope').load_extension('harpoon')
-  require('telescope').load_extension('live_grep_args')
-  require('telescope').load_extension('sfm-telescope')
-  require('telescope').load_extension('projects')
-  require('telescope').load_extension('repo')
-
   -- filetype
   require('plenary.filetype').add_file('json')
   require('plenary.filetype').add_file('nginx')
@@ -83,6 +45,9 @@ function tools.setup()
       width = 0.9,
     },
   })
+
+  -- buffer dir
+  vim.g.rooter_cd_cmd = 'lcd' -- change each buffer's dir
 
   -- emmet
   vim.g.user_emmet_leader_key = '<C-z>'
@@ -125,4 +90,4 @@ function tools.setup()
   vim.g.mkdp_filetypes = 'markdown'
 end
 
-return tools
+return M

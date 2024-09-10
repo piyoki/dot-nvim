@@ -2,6 +2,7 @@ local M = {}
 
 local telescope = require('telescope.builtin')
 local lspconfig = require('lspconfig')
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local on_attach = function(_, _)
   vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {})
@@ -37,28 +38,37 @@ end
 
 local setup_lsp_servers = function()
   -- Set up lsp servers via lspconfig
-  lspconfig.ansiblels.setup({})
-  lspconfig.bashls.setup({})
-  lspconfig.bufls.setup({})
-  lspconfig.clangd.setup({})
-  lspconfig.cmake.setup({})
+  lspconfig.ansiblels.setup({ capabilities = capabilities })
+  lspconfig.bashls.setup({ capabilities = capabilities })
+  lspconfig.bufls.setup({ capabilities = capabilities })
+  lspconfig.clangd.setup({ capabilities = capabilities })
+  lspconfig.cmake.setup({ capabilities = capabilities })
   lspconfig.docker_compose_language_service.setup({})
-  lspconfig.dockerls.setup({})
-  lspconfig.emmet_ls.setup({})
-  lspconfig.gopls.setup({})
-  lspconfig.graphql.setup({})
-  lspconfig.jdtls.setup({})
-  lspconfig.jsonls.setup({})
-  lspconfig.lua_ls.setup({})
-  lspconfig.marksman.setup({})
-  lspconfig.nil_ls.setup({})
-  lspconfig.pyright.setup({})
-  lspconfig.rust_analyzer.setup({})
-  lspconfig.sqls.setup({})
-  lspconfig.tailwindcss.setup({})
-  lspconfig.terraformls.setup({})
-  lspconfig.ts_ls.setup({})
-  lspconfig.yamlls.setup({})
+  lspconfig.dockerls.setup({ capabilities = capabilities })
+  lspconfig.emmet_ls.setup({ capabilities = capabilities })
+  lspconfig.gopls.setup({ capabilities = capabilities })
+  lspconfig.graphql.setup({ capabilities = capabilities })
+  lspconfig.jdtls.setup({ capabilities = capabilities })
+  lspconfig.jsonls.setup({ capabilities = capabilities })
+  lspconfig.lua_ls.setup({
+    capabilities = capabilities,
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = { 'vim' },
+        },
+      },
+    },
+  })
+  lspconfig.marksman.setup({ capabilities = capabilities })
+  lspconfig.nil_ls.setup({ capabilities = capabilities })
+  lspconfig.pyright.setup({ capabilities = capabilities })
+  lspconfig.rust_analyzer.setup({ capabilities = capabilities })
+  lspconfig.sqls.setup({ capabilities = capabilities })
+  lspconfig.tailwindcss.setup({ capabilities = capabilities })
+  lspconfig.terraformls.setup({ capabilities = capabilities })
+  lspconfig.ts_ls.setup({ capabilities = capabilities })
+  lspconfig.yamlls.setup({ capabilities = capabilities })
 
   -- Not available with native binary
   lspconfig.cssls.setup({})

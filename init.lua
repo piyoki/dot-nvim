@@ -30,7 +30,7 @@ packer_init()
 -- Modules --
 require('plugins')
 require('core.settings').setup()
-require('ide').setup()
 require('core.keymap').setup()
+require('ide').setup()
 require('core.autocmd').setup()
 require('config').setup()

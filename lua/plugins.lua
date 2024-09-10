@@ -29,6 +29,20 @@ return require('packer').startup(function()
     },
   })
 
+  -- completion & snippets
+  use({
+    'hrsh7th/nvim-cmp',
+    requires = {
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-nvim-lua',
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip',
+      'rafamadriz/friendly-snippets',
+    },
+  })
+
   -- treesitter
   use({
     'nvim-treesitter/nvim-treesitter',
@@ -46,15 +60,7 @@ return require('packer').startup(function()
 
   -- IDE-like development
   use({ 'onsails/lspkind-nvim' })
-  use({ 'hrsh7th/nvim-cmp' })
-  use({ 'hrsh7th/cmp-buffer' })
-  use({ 'hrsh7th/cmp-path' })
-  use({ 'hrsh7th/cmp-nvim-lsp' })
-  use({ 'hrsh7th/cmp-nvim-lua' })
-  use({ 'hrsh7th/cmp-vsnip' })
-  use({ 'hrsh7th/vim-vsnip' })
   use({ 'mattn/emmet-vim' })
-  use({ 'rafamadriz/friendly-snippets' })
   use({ 'folke/trouble.nvim' })
   use({ 'tpope/vim-commentary' })
   use({ 'tpope/vim-unimpaired' })
@@ -94,6 +100,7 @@ return require('packer').startup(function()
   use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
   use({ 'nvim-telescope/telescope-file-browser.nvim' })
   use({ 'nvim-telescope/telescope-live-grep-args.nvim' })
+  use({ 'nvim-telescope/telescope-ui-select.nvim' })
   use({ 'cljoly/telescope-repo.nvim' })
   use({ 'haya14busa/incsearch.vim' })
 
