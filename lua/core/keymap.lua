@@ -210,6 +210,11 @@ function M.setup()
       desc = 'CopilotChat - OpenChat',
     },
     {
+      '<leader>ccr',
+      '<cmd>CopilotChatReset<CR>',
+      desc = 'CopilotChat - Reset',
+    },
+    {
       '<leader>ccq',
       function()
         local input = vim.fn.input('Quick Chat: ')
