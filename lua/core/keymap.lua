@@ -67,7 +67,6 @@ function M.setup()
   utils.map('n', '<LEADER>t', ':tabe<CR>') -- New tab
   utils.map('n', '<LEADER>-', ':BufferPrevious<CR>') -- Jump to previous buffer
   utils.map('n', '<LEADER>=', ':BufferNext<CR>') -- Jump to the next buffer
-  utils.map('n', 'gtp', ':BufferPick<CR>') -- Pick a buffer from the current list
   utils.map('n', 'gb', '<cmd>Telescope buffers prompt_prefix=🔍<CR>') -- Explore current buffer list
 
   -- Window
