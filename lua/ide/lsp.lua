@@ -40,7 +40,7 @@ local setup_lsp_servers = function()
   -- Set up lsp servers via lspconfig
   lspconfig.ansiblels.setup({ capabilities = capabilities })
   lspconfig.bashls.setup({ capabilities = capabilities })
-  lspconfig.bufls.setup({ capabilities = capabilities })
+  lspconfig.buf_ls.setup({ capabilities = capabilities })
   lspconfig.clangd.setup({ capabilities = capabilities })
   lspconfig.cmake.setup({ capabilities = capabilities })
   lspconfig.docker_compose_language_service.setup({})
