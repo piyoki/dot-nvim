@@ -3,55 +3,43 @@ local M = {}
 local formatter = require('formatter')
 local util = require('formatter.util')
 
+-- universal formatter
+-- local prettier = { require('formatter.filetypes.lua').stylua }
+local prettier = {
+  function()
+    return {
+      exe = 'prettier',
+      args = {
+        '--stdin-filepath',
+        vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)),
+        '--single-quote false',
+      },
+      stdin = true,
+    }
+  end,
+}
+
 function M.setup()
   formatter.setup({
     -- Enable or disable logging
     logging = true,
     -- Set the log level
-    log_level = vim.log.levels.DEBUG,
+    log_level = vim.log.levels.WARN,
     filetype = {
-      -- markdown
-      markdown = {
-        function()
-          return {
-            exe = 'prettier',
-            args = {
-              '--stdin-filepath',
-              vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)),
-              '--single-quote false',
-            },
-            stdin = true,
-          }
-        end,
-      },
-      -- json
-      json = {
-        function()
-          return {
-            exe = 'prettier',
-            args = {
-              '--stdin-filepath',
-              vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)),
-              '--single-quote false',
-            },
-            stdin = true,
-          }
-        end,
-      },
-      conf = {
-        function()
-          return {
-            exe = 'prettier',
-            args = {
-              '--stdin-filepath',
-              vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)),
-              '--single-quote false',
-            },
-            stdin = true,
-          }
-        end,
-      },
-      -- hcl
+      -- yaml filetype
+      yaml = prettier,
+      -- markdown filetype
+      markdown = prettier,
+      -- json filetype
+      json = prettier,
+      -- conf filetype
+      conf = prettier,
+      -- nodejs filetype
+      javascript = prettier,
+      javascriptreact = prettier,
+      typescript = prettier,
+      typescriptreact = prettier,
+      -- hcl filetype
       hcl = {
         function()
           return {
@@ -61,7 +49,7 @@ function M.setup()
           }
         end,
       },
-      -- terraform
+      -- terraform filetype
       terraform = {
         function()
           return {
@@ -71,7 +59,7 @@ function M.setup()
           }
         end,
       },
-      -- golang
+      -- golang filetype
       go = {
         function()
           return {
@@ -80,23 +68,9 @@ function M.setup()
           }
         end,
       },
-      -- lua
-      lua = {
-        function()
-          return {
-            exe = 'stylua',
-            args = {
-              '--search-parent-directories',
-              '--stdin-filepath',
-              util.escape_path(util.get_current_buffer_file_path()),
-              '--',
-              '-',
-            },
-            stdin = true,
-          }
-        end,
-      },
-      -- shell
+      -- lua filetype
+      lua = { require('formatter.filetypes.lua').stylua },
+      -- shell filetype
       sh = {
         function()
           return {
@@ -106,34 +80,7 @@ function M.setup()
           }
         end,
       },
-      -- nodejs
-      javascript = {
-        function()
-          return {
-            exe = 'prettier',
-            args = {
-              '--stdin-filepath',
-              vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)),
-              '--single-quote false',
-            },
-            stdin = true,
-          }
-        end,
-      },
-      typescript = {
-        function()
-          return {
-            exe = 'prettier',
-            args = {
-              '--stdin-filepath',
-              vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)),
-              '--single-quote false',
-            },
-            stdin = true,
-          }
-        end,
-      },
-      -- python
+      -- python filetype
       python = {
         function()
           return {
@@ -143,7 +90,7 @@ function M.setup()
           }
         end,
       },
-      -- ruby
+      -- ruby filetype
       ruby = {
         function()
           return {
@@ -160,21 +107,7 @@ function M.setup()
           }
         end,
       },
-      -- yaml
-      yaml = {
-        function()
-          return {
-            exe = 'prettier',
-            args = {
-              '--stdin-filepath',
-              vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)),
-              '--single-quote false',
-            },
-            stdin = true,
-          }
-        end,
-      },
-      -- nix
+      -- nix filetype
       nix = {
         function()
           return {
@@ -184,7 +117,7 @@ function M.setup()
           }
         end,
       },
-      -- cmake
+      -- cmake filetype
       cmake = {
         function()
           return {
@@ -194,11 +127,11 @@ function M.setup()
           }
         end,
       },
-      -- c
+      -- c filetype
       c = {
         require('formatter.filetypes.c').clangformat,
       },
-      -- rust
+      -- rust filetype
       rust = {
         function()
           return {

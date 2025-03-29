@@ -14,10 +14,8 @@ function autocmd.setup()
     [[
     augroup FormatAutogroup
       autocmd!
-      autocmd BufWritePost *.c,*.md,*.yaml,*.json,*.go,*.lua,*.sh,*.js,*.ts,*.py,*.rb,*.hcl,*.tf,*.nix,*.rs,makefile FormatWrite
+      autocmd BufWritePost * FormatWrite
       autocmd BufNewFile,BufRead *.hcl set filetype=terraform syntax=terraform
-      autocmd BufNewFile,BufRead *.jsx set filetype=javascriptreact syntax=javascript
-      autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact syntax=typescript
     augroup END
   ]],
     true
