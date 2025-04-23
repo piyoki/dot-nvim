@@ -43,7 +43,7 @@ local setup_lsp_servers = function()
   lspconfig.buf_ls.setup({ capabilities = capabilities })
   lspconfig.clangd.setup({ capabilities = capabilities })
   lspconfig.cmake.setup({ capabilities = capabilities })
-  lspconfig.docker_compose_language_service.setup({})
+  lspconfig.docker_compose_language_service.setup({ capabilities = capabilities })
   lspconfig.dockerls.setup({ capabilities = capabilities })
   lspconfig.emmet_ls.setup({ capabilities = capabilities })
   lspconfig.gopls.setup({ capabilities = capabilities })
@@ -71,14 +71,14 @@ local setup_lsp_servers = function()
   lspconfig.yamlls.setup({ capabilities = capabilities })
 
   -- Not available with native binary
-  lspconfig.cssls.setup({})
-  lspconfig.cssmodules_ls.setup({})
-  lspconfig.html.setup({})
+  lspconfig.cssls.setup({ capabilities = capabilities })
+  lspconfig.cssmodules_ls.setup({ capabilities = capabilities })
+  lspconfig.html.setup({ capabilities = capabilities })
 
   -- Set up linters via lspconfig
-  lspconfig.eslint.setup({})
-  lspconfig.golangci_lint_ls.setup({})
-  lspconfig.tflint.setup({})
+  lspconfig.eslint.setup({ capabilities = capabilities })
+  lspconfig.golangci_lint_ls.setup({ capabilities = capabilities })
+  lspconfig.tflint.setup({ capabilities = capabilities })
 end
 
 function M.setup()
