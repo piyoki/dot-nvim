@@ -10,26 +10,6 @@ function M.setup()
     disable_filetype = { 'TelescopePrompt' },
   })
 
-  -- sfm
-  local sfm_explorer = require('sfm').setup({
-    mappings = {
-      list = {
-        {
-          key = 'y',
-          action = 'copy',
-        },
-      },
-    },
-  })
-  sfm_explorer:load_extension('sfm-git', {
-    debounce_interval_ms = 100,
-  })
-  sfm_explorer:load_extension('sfm-telescope', {
-    mappings = {
-      search = { '/' },
-    },
-  })
-
   -- project
   require('project_nvim').setup({})
 
@@ -46,8 +26,9 @@ function M.setup()
     },
   })
 
-  -- buffer dir
-  vim.g.rooter_cd_cmd = 'lcd' -- change each buffer's dir
+  -- rooter
+  -- vim.g.rooter_cd_cmd = 'lcd' -- change each buffer's dir
+  require('nvim-rooter').setup()
 
   -- emmet
   vim.g.user_emmet_leader_key = '<C-z>'

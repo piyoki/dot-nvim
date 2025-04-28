@@ -4,7 +4,8 @@ return require('packer').startup(function()
   -- core
   use({ 'wbthomason/packer.nvim' })
   use({ 'nvim-lua/plenary.nvim' })
-  use({ 'airblade/vim-rooter' })
+  -- use({ 'airblade/vim-rooter' })
+  use({ 'notjedi/nvim-rooter.lua' })
 
   -- colorscheme
   use({ 'projekt0n/github-nvim-theme', tag = 'v0.0.7' })
@@ -93,6 +94,7 @@ return require('packer').startup(function()
       'dinhhuy258/sfm-telescope.nvim',
     },
   })
+  use({ 'tamago324/lir.nvim' })
   use({ 'ahmedkhalf/project.nvim' })
 
   -- searching & filtering

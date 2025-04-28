@@ -111,8 +111,8 @@ function M.setup()
   utils.map('n', 'gP', '<cmd>lua require("telescope").extensions.repo.list{search_dirs = {"~/Workspace"}}<CR>')
   utils.map('n', 'go', '<cmd>Telescope oldfiles hidden=true prompt_prefix=🔍<CR>')
 
-  -- SFM (Simple File Manager)
-  utils.map('n', '<C-b>', '<cmd>SFMToggle<CR>')
+  -- File Explorer
+  utils.map('n', '<C-b>', ":lua require'lir.float'.toggle()<CR>")
 
   -- LSP (Short)
   utils.map('n', '<C-e>', ':lua vim.diagnostic.open_float')

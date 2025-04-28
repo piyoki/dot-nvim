@@ -35,12 +35,12 @@ function autocmd.setup()
   ]])
 
   -- set current working directory when opening vim
-  vim.cmd([[
-    augroup cdpwd
-      autocmd!
-      autocmd VimEnter * cd $PWD
-    augroup end
-  ]])
+  -- vim.cmd([[
+  --   augroup cdpwd
+  --     autocmd!
+  --     autocmd VimEnter * cd $PWD
+  --   augroup end
+  -- ]])
 end
 
 return autocmd
