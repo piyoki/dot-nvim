@@ -13,6 +13,7 @@ local prettier = {
         '--stdin-filepath',
         vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)),
         '--single-quote false',
+        '--trailing-comma none',
       },
       stdin = true,
     }
@@ -32,6 +33,7 @@ function M.setup()
       markdown = prettier,
       -- json filetype
       json = prettier,
+      jsonc = prettier,
       -- conf filetype
       conf = prettier,
       -- nodejs filetype
