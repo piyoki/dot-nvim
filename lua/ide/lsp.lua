@@ -69,16 +69,14 @@ local setup_lsp_servers = function()
   lspconfig.terraformls.setup({ capabilities = capabilities })
   lspconfig.ts_ls.setup({ capabilities = capabilities })
   lspconfig.yamlls.setup({ capabilities = capabilities })
+  lspconfig.eslint.setup({ capabilities = capabilities })
+  lspconfig.golangci_lint_ls.setup({ capabilities = capabilities })
+  lspconfig.tflint.setup({ capabilities = capabilities })
 
   -- Not available with native binary
   lspconfig.cssls.setup({ capabilities = capabilities })
   lspconfig.cssmodules_ls.setup({ capabilities = capabilities })
   lspconfig.html.setup({ capabilities = capabilities })
-
-  -- Set up linters via lspconfig
-  lspconfig.eslint.setup({ capabilities = capabilities })
-  lspconfig.golangci_lint_ls.setup({ capabilities = capabilities })
-  lspconfig.tflint.setup({ capabilities = capabilities })
 end
 
 function M.setup()
