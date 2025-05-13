@@ -61,7 +61,7 @@ local setup_lsp_servers = function()
     },
   })
   lspconfig.marksman.setup({ capabilities = capabilities })
-  lspconfig.nil_ls.setup({ capabilities = capabilities })
+  lspconfig.nixd.setup({ capabilities = capabilities })
   lspconfig.pyright.setup({ capabilities = capabilities })
   lspconfig.rust_analyzer.setup({ capabilities = capabilities })
   lspconfig.sqls.setup({ capabilities = capabilities })
