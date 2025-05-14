@@ -24,23 +24,22 @@ function M.setup()
       ['h'] = actions.up,
       ['l'] = actions.edit,
       ['q'] = actions.quit,
-
-      ['K'] = actions.mkdir,
-      ['N'] = actions.newfile,
-      ['R'] = actions.rename,
       ['@'] = actions.cd,
       ['Y'] = actions.yank_path,
       ['.'] = actions.toggle_show_hidden,
-      ['D'] = actions.delete,
 
       -- select the current item
-      ['J'] = function()
+      ['<space>'] = function()
         mark_actions.toggle_mark()
         vim.cmd('normal! jk')
       end,
       ['y'] = clipboard_actions.copy,
       ['x'] = clipboard_actions.cut,
       ['p'] = clipboard_actions.paste,
+      ['N'] = actions.mkdir,
+      ['n'] = actions.newfile,
+      ['r'] = actions.rename,
+      ['d'] = actions.delete,
     },
     float = {
       winblend = 1,
@@ -65,7 +64,7 @@ function M.setup()
       --   }
       -- end,
     },
-    hide_cursor = false,
+    hide_cursor = true,
 
     vim.api.nvim_create_autocmd({ 'FileType' }, {
       pattern = { 'lir' },
