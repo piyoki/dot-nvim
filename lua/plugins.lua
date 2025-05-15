@@ -4,13 +4,11 @@ return require('packer').startup(function()
   -- core
   use({ 'wbthomason/packer.nvim' })
   use({ 'nvim-lua/plenary.nvim' })
-  -- use({ 'airblade/vim-rooter' })
   use({ 'notjedi/nvim-rooter.lua' })
 
   -- colorscheme
   use({ 'projekt0n/github-nvim-theme', tag = 'v0.0.7' })
   use({ 'sam4llis/nvim-tundra' })
-  -- use({ 'xiyaowong/transparent.nvim' })
 
   -- interface
   use({ 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } })
@@ -86,16 +84,8 @@ return require('packer').startup(function()
   use({ 'numtostr/FTerm.nvim' })
   use({ 'folke/which-key.nvim' })
   use({ 'wakatime/vim-wakatime' })
-  use({
-    'dinhhuy258/sfm.nvim',
-    requires = {
-      'dinhhuy258/sfm-git.nvim',
-      'dinhhuy258/sfm-fs.nvim',
-      'dinhhuy258/sfm-telescope.nvim',
-    },
-  })
   use({ 'tamago324/lir.nvim' })
-  use({ 'ahmedkhalf/project.nvim' })
+  use({ 'rmagatti/auto-session' })
 
   -- searching & filtering
   use({ 'nvim-telescope/telescope.nvim' })
@@ -103,7 +93,6 @@ return require('packer').startup(function()
   use({ 'nvim-telescope/telescope-file-browser.nvim' })
   use({ 'nvim-telescope/telescope-live-grep-args.nvim' })
   use({ 'nvim-telescope/telescope-ui-select.nvim' })
-  use({ 'cljoly/telescope-repo.nvim' })
   use({ 'haya14busa/incsearch.vim' })
 
   -- markdown support
