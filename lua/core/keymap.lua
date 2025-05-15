@@ -3,6 +3,8 @@ local M = {}
 local wk = require('which-key')
 local utils = require('utils')
 local opts = { noremap = true, silent = true }
+local initial_dir = vim.fn.getcwd()
+vim.g.initial_dir = initial_dir
 
 function M.setup()
   -- Map leader to space
@@ -80,7 +82,7 @@ function M.setup()
   ----------------------------------------------
 
   -- Auto Session
-  utils.map('n', 'ss', ':SessionSave<CR>') -- (N) Save session
+  utils.map('n', 'ss', ':SessionSave ' .. vim.g.initial_dir .. '<CR>') -- (N) Save session
   utils.map('n', 'sr', ':SessionSearch<CR>') -- (N) List existing sessions
 
   -- Terminal
