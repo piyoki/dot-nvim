@@ -79,6 +79,10 @@ function M.setup()
 
   ----------------------------------------------
 
+  -- Auto Session
+  utils.map('n', 'ss', ':SessionSave<CR>') -- (N) Save session
+  utils.map('n', 'sr', ':SessionSearch<CR>') -- (N) List existing sessions
+
   -- Terminal
   utils.map('n', '<LEADER>,', ':terminal<CR>') -- (N) Instiatiate a new terminal window
 
@@ -107,8 +111,6 @@ function M.setup()
   )
   utils.map('n', '<C-f>', '<cmd>Telescope find_files hidden=true prompt_prefix=🔍<CR>')
   utils.map('n', 'glg', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
-  utils.map('n', 'gp', '<cmd>Telescope projects<CR>')
-  utils.map('n', 'gP', '<cmd>lua require("telescope").extensions.repo.list{search_dirs = {"~/Workspace"}}<CR>')
   utils.map('n', 'go', '<cmd>Telescope oldfiles hidden=true prompt_prefix=🔍<CR>')
 
   -- File Explorer
@@ -182,12 +184,6 @@ function M.setup()
     { '<Leader>fs', '<cmd>Telescope live_grep prompt_prefix=🔍<CR>', desc = 'Telescope Live Grep' },
     { '<Leader>fd', '<cmd>Telescope diagnostics prompt_prefix=🔍<CR>', desc = 'Telescope Diagonostics' },
     { '<Leader>fm', '<cmd>Telescope marks prompt_prefix=🔍<CR>', desc = 'Telescope Marks' },
-    { '<Leader>fp', '<cmd>Telescope projects prompt_prefix=🔍<CR>', desc = 'Telescope Recent Projects' },
-    {
-      '<Leader>fP',
-      '<cmd>Telescope repo list search_dirs=~/Workspace hidden=true prompt_prefix=🔍<CR>',
-      desc = 'Telescope Find Projects',
-    },
     { '<Leader>fh', '<cmd>Telescope highlights prompt_prefix=🔍<CR>', desc = 'Telescope Highlights' },
   })
 

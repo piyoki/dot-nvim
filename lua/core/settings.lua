@@ -22,7 +22,7 @@ function settings.setup()
   vim.opt.autoindent = false -- enable auto indent
   vim.opt.wrap = true -- wrap text
   vim.opt.signcolumn = 'yes' -- always show the signcolumn, or it would shift the text each time
-  -- vim.opt.hidden = true -- when off a buffer is unloaded when it is abandoned
+  vim.opt.hidden = true -- when off a buffer is unloaded when it is abandoned
   vim.opt.shiftround = true -- round indent to multiple of 'shiftwidth', apply to >, <
   vim.opt.smartcase = true -- enable smartcase
   vim.opt.smarttab = true -- enable smarttab
