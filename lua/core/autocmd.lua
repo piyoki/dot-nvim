@@ -33,12 +33,14 @@ function autocmd.setup()
   ]])
 
   -- set current working directory when opening vim
-  -- vim.cmd([[
-  --   augroup cdpwd
-  --     autocmd!
-  --     autocmd VimEnter * cd $PWD
-  --   augroup end
-  -- ]])
+  vim.cmd([[
+    augroup cdpwd
+      autocmd!
+      autocmd VimEnter * cd $PWD
+    augroup end
+  ]])
+
+  -- change working directory to the project root when opening a file
   nvim_cmd([[
     lua require('nvim-rooter').setup()
   ]])
