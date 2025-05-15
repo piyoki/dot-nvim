@@ -26,15 +26,6 @@ function interface.setup()
     focus_on_close = 'left',
   })
 
-  -- colorizer
-  require('colorizer').setup(nil, {
-    RRGGBBAA = true,
-    css = true,
-    css_fn = true,
-    rgb_fn = true,
-    hsl_fn = true,
-  })
-
   -- gitsigns
   require('gitsigns').setup({
     signs = {
