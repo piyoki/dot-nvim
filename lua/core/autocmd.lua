@@ -3,8 +3,6 @@ local nvim_cmd = vim.api.nvim_command
 local nvim_exec = vim.api.nvim_exec
 
 function autocmd.setup()
-  -- set tab display format ==> (moved to ide/indent.lua)
-
   -- return to the previous edit position
   nvim_cmd([[
     autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif " Return to the previous edit position
@@ -41,6 +39,9 @@ function autocmd.setup()
   --     autocmd VimEnter * cd $PWD
   --   augroup end
   -- ]])
+  nvim_cmd([[
+    lua require('nvim-rooter').setup()
+  ]])
 end
 
 return autocmd

@@ -23,9 +23,6 @@ function M.setup()
     },
   })
 
-  -- rooter
-  require('nvim-rooter').setup()
-
   -- emmet
   vim.g.user_emmet_leader_key = '<C-z>'
 
