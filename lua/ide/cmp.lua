@@ -37,6 +37,11 @@ function M.setup()
       ['<C-Space>'] = cmp.mapping.complete(),
     },
     sources = cmp_snippet_sources,
+
+    -- colorizer integration
+    formatting = {
+      format = require('nvim-highlight-colors').format,
+    },
   })
 
   cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())

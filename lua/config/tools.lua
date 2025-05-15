@@ -10,9 +10,6 @@ function M.setup()
     disable_filetype = { 'TelescopePrompt' },
   })
 
-  -- project
-  require('project_nvim').setup({})
-
   -- filetype
   require('plenary.filetype').add_file('json')
   require('plenary.filetype').add_file('nginx')
@@ -27,7 +24,6 @@ function M.setup()
   })
 
   -- rooter
-  -- vim.g.rooter_cd_cmd = 'lcd' -- change each buffer's dir
   require('nvim-rooter').setup()
 
   -- emmet
