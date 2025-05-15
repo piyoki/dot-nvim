@@ -10,14 +10,6 @@
   * [Benefits](#benefits)
   * [Lua Keybings](#lua-keybings)
   * [Package Management](#package-management)
-* [Plugins](#plugins)
-    * [Core](#core)
-    * [Lua Native](#lua-native)
-    * [Editing Addons](#editing-addons)
-    * [Prerequisite:](#prerequisite)
-    * [LSP Addons](#lsp-addons)
-    * [Formatter Addons](#formatter-addons)
-    * [Extra Addons](#extra-addons)
 
 <!-- vim-markdown-toc -->
 
@@ -121,68 +113,3 @@ end)
 ```
 
 Then we can run `:PackerSync` which will download/install the list of defined plugins
-
-## Plugins
-
-#### Core
-
-- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) - a collection of configurations for Neovim's built-in LSP
-- [treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - syntax highlight for Neovim's built-in LSP
-- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) - extendable fuzzy finder over lists
-
-#### Lua Native
-
-- [lualine](https://github.com/nvim-lualine/lualine.nvim) - a blazing fast and easy to configure Neovim statusline written in Lua
-
-#### Editing Addons
-
-- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) - completion engine
-- [vim-surround](https://github.com/tpope/vim-surround) - mappings to easily delete, change and add surroundings in pairs
-- [formatter.nvim](https://github.com/mhartington/formatter.nvim) - A format runner for neovim, written in lua
-
-#### Prerequisite:
-
-- nodejs
-- npm
-- yarn
-
-```bash
-# Install yarn
-sudo npm i -g yarn
-```
-
-#### LSP Addons
-
-```bash
-# gopls
-go install golang.org/x/tools/gopls@latest
-# golangci-lint
-go install github.com/golangci/golangci-lint/cmd/golangci-lint@lastet
-```
-
-#### Formatter Addons
-
-```bash
-# go formatter (comes with the go binary)
-sudo pacman -S go
-# lua formatter
-sudo pacman -S stylua
-# shell script formatter
-sudo pacman -S shfmt
-# ctags
-sudo pacman -S ctags
-# typescript, javascript, markdown, JSON formatter
-sudo npm install -g prettier
-# yamlfmt
-pip3 install yamlfmt
-# python formatter
-sudo pacman -S python-black
-# ruby formatter (required PATH setup)
-gem install rubocop
-# terragrunt(terraform) formatter (comes with terragrunt/terraform)
-sudo pacman -S terraform terragrunt
-```
-
-#### Extra Addons
-
-- [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim) - markdown preview plugin for (neo)vim
