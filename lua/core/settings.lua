@@ -18,7 +18,7 @@ function settings.setup()
   vim.opt.showtabline = indent -- always show tabline
   vim.opt.scrolloff = indent -- minimal number of screen lines to keep above and below the cursor
   vim.opt.spelllang = 'en_us' -- set spell check languages
-  vim.opt.autochdir = true -- change the current working directory whenever opening a file
+  vim.opt.autochdir = false -- change the current working directory whenever opening a file
   vim.opt.autoindent = false -- enable auto indent
   vim.opt.wrap = true -- wrap text
   vim.opt.signcolumn = 'yes' -- always show the signcolumn, or it would shift the text each time
