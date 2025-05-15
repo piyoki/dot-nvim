@@ -96,6 +96,7 @@ return require('packer').startup(function()
   })
   use({ 'tamago324/lir.nvim' })
   use({ 'ahmedkhalf/project.nvim' })
+  use({ 'rmagatti/auto-session' })
 
   -- searching & filtering
   use({ 'nvim-telescope/telescope.nvim' })
