@@ -66,7 +66,6 @@ function M.setup()
   utils.map('n', '<C-b>', '<cmd>Explore<CR>') -- Open built-in file explorer
 
   -- Tab
-  utils.map('n', '<LEADER>t', ':tabe<CR>') -- New tab
   utils.map('n', '<LEADER>-', ':BufferPrevious<CR>') -- Jump to previous buffer
   utils.map('n', '<LEADER>=', ':BufferNext<CR>') -- Jump to the next buffer
   utils.map('n', 'gb', '<cmd>Telescope buffers prompt_prefix=🔍<CR>') -- Explore current buffer list
@@ -138,7 +137,7 @@ function M.setup()
 
   -- Markdown toc
   wk.add({
-    { '<Leader>T', '<cmd>:GenTocGFM<CR>', desc = 'Set Generate markdown toc' },
+    { 'toc', '<cmd>:GenTocGFM<CR>', desc = 'Set Generate markdown toc' },
   })
 
   -- CodeRunner
