@@ -7,15 +7,15 @@ function interface.setup()
     red = '#a8000e',
     blue = '#0476d9',
     green = '#6fff68',
-    lightgreen = '#aee899',
     lightblue = '#88abf2',
+    lightgreen = '#96de7a',
     yellow = '#f2c12e',
-    lightyellow = '#ffffba',
+    lightyellow = '#f7ffbc',
     purple = '#b392f0',
     lightpurple = '#ccccff',
     darkgray = '#3d3d3d',
     lightgray = '#504945',
-    white = '#d9d9d9',
+    white = '#c9d1d9',
     none = 'none',
   }
 
@@ -65,6 +65,7 @@ function interface.setup()
   vim.cmd(string.format('hi FloatBorder guifg=%s guibg=none', colors.darkgray))
   vim.cmd(string.format('hi LazygitBorder guifg=%s guibg=none', colors.darkgray))
   vim.cmd(string.format('hi BufferCurrent guibg=colors.darkgray', colors.lightpurple))
+
   -- diagnostic
   vim.cmd(string.format('hi DiagnosticSignWarn guibg=none guifg=%s', colors.yellow))
   vim.cmd(string.format('hi DiagnosticSignError guibg=none guifg=%s', colors.red))
@@ -72,7 +73,6 @@ function interface.setup()
   vim.cmd(string.format('hi DiagnosticSignHint guibg=none guifg=%s', colors.lightyello))
 
   -- gitsigns
-  -- vim.cmd('hi SignColumn guibg=none')
   vim.cmd(string.format('hi GitSignsAdd guifg=%s guibg=none', colors.lightgreen))
   vim.cmd(string.format('hi GitSignsChange guifg=%s guibg=none', colors.lightblue))
   vim.cmd(string.format('hi GitSignsDelete guifg=%s guibg=none', colors.red))
@@ -80,27 +80,14 @@ function interface.setup()
   vim.cmd(string.format('hi GitSignsStagedChange guifg=%s guibg=none', colors.lightblue))
   vim.cmd(string.format('hi GitSignsStagedDelete guifg=%s guibg=none', colors.red))
 
-  -- transparent mod
-  -- require('transparent').setup({
-  --   extra_groups = {}, -- table: additional groups that should be cleared
-  --   exclude_groups = {
-  --     'PmenuSel',
-  --     'PmenuSbar',
-  --     'LineNr',
-  --     'CursorLineNr',
-  --     'TelescopeBorder',
-  --     'FloatBorder',
-  --     'LazygitBorder',
-  --     'BufferCurrent',
-  --     'DiagnosticSignWarn',
-  --     'DiagnosticSignError',
-  --     'DiagnosticSignInfo',
-  --     'DiagnosticSignHint',
-  --     'DiffAdd',
-  --     'DiffChange',
-  --     'DiffDelete',
-  --   }, -- table: groups you don't want to clear
-  -- })
+  -- markdown
+  vim.cmd(string.format('hi markdownListMarker guibg=none guifg=%s', colors.darkgray))
+  vim.cmd(string.format('hi markdownOrderedListMarker guibg=none guifg=%s', colors.darkgray))
+
+  -- checkmate
+  vim.cmd(
+    string.format('hi CheckmateTodoCountIndicator guibg=none guifg=%s cterm=italic gui=italic', colors.lightpurple)
+  )
 
   -- cursor-word
   vim.cmd('hi default CursorWord cterm=underline gui=bold')
