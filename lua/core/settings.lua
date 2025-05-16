@@ -45,6 +45,7 @@ function settings.setup()
   vim.opt.foldenable = false -- disable open all fold
   vim.opt.fillchars = 'eob: ' -- characters to fill the statuslines and vertical separators. eob: ~
   vim.opt.spell = true -- set spell check
+  vim.opt.equalalways = true -- make all windows the same size
 
   -- Searching
   vim.opt.hlsearch = true -- enable highlight search
