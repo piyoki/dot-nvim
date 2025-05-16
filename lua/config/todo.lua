@@ -19,22 +19,6 @@ function M.setup()
     todo_count_recursive = true,
     todo_count_position = 'eol',
     style = {
-      list_marker_unordered = {
-        -- Can use util functions to get existing highlight colors and blend them together
-        -- This is one way to integrate with an existing colorscheme
-        fg = util.blend(
-          util.get_hl_color('Normal', 'fg', '#bbbbbb'),
-          util.get_hl_color('Normal', 'bg', '#222222'),
-          0.2
-        ),
-      },
-      list_marker_ordered = {
-        fg = util.blend(
-          util.get_hl_color('Normal', 'fg', '#bbbbbb'),
-          util.get_hl_color('Normal', 'bg', '#222222'),
-          0.5
-        ),
-      },
       -- Unchecked todo items
       unchecked_marker = { fg = '#bfbfbf', bold = true }, -- The marker itself
       unchecked_main_content = { fg = '#ffffff' }, -- Style settings for main content: typically the first line/paragraph
