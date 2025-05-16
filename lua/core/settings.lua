@@ -11,22 +11,17 @@ function settings.setup()
   vim.cmd('filetype plugin indent on') -- enable auto indent
 
   -- global options
-  vim.opt.expandtab = true -- convert tabs to spaces
-  vim.opt.tabstop = indent -- insert the number of spaces for a tab
   vim.opt.shiftwidth = indent -- change the number of space characters inserted for indentation
   vim.opt.softtabstop = indent -- set the number of columns for a tab
   vim.opt.showtabline = indent -- always show tabline
   vim.opt.scrolloff = indent -- minimal number of screen lines to keep above and below the cursor
   vim.opt.spelllang = 'en_us' -- set spell check languages
   vim.opt.autochdir = false -- change the current working directory whenever opening a file
-  vim.opt.autoindent = false -- enable auto indent
   vim.opt.wrap = true -- wrap text
   vim.opt.signcolumn = 'yes' -- always show the signcolumn, or it would shift the text each time
   vim.opt.hidden = true -- when off a buffer is unloaded when it is abandoned
   vim.opt.shiftround = true -- round indent to multiple of 'shiftwidth', apply to >, <
   vim.opt.smartcase = true -- enable smartcase
-  vim.opt.smarttab = true -- enable smarttab
-  vim.opt.smartindent = false -- enable smartindent
   vim.opt.splitbelow = true -- horizontal splits will automatically be below
   vim.opt.splitright = true -- vertical splits will automatically be right
   vim.opt.ruler = true -- show the cursor position all the time
@@ -34,6 +29,13 @@ function settings.setup()
   vim.opt.timeoutlen = 300 -- time in milliseconds to wait for a mapped sequence to complete
   vim.opt.cmdheight = 1 -- more space for displaying messages, default 1
   vim.opt.completeopt = 'menuone,noselect' -- a comma separated list of options for Insert mode completion
+
+  -- indentation options
+  vim.opt.tabstop = indent -- insert the number of spaces for a tab
+  vim.opt.autoindent = true -- copy indentation from the current line when starting a new one
+  vim.opt.smartindent = true -- add additional indentation in some cases
+  vim.opt.smarttab = true -- make <tab> insert the correct number of spaces
+  vim.opt.expandtab = true -- convert tabs to spaces
 
   -- window scope options
   vim.opt.number = true -- enable linenumber
