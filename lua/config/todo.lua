@@ -31,26 +31,33 @@ function M.setup()
       checked_additional_content = { fg = colors.gray }, -- Settings for additional content
     },
     metadata = {
+      -- Default metadata
       priority = { key = '<leader>tp' },
       started = { key = '<leader>ts', style = { fg = colors.yellow } },
       done = {
         key = '<leader>tt',
+        style = { fg = colors.green },
         on_remove = function(todo_item)
           require('checkmate').set_todo_item(todo_item, 'unchecked')
         end,
       },
+
+      -- Define custom metadata
       due = {
         aliases = { 'end' },
-        -- Define default value function
         get_value = function()
           local t = os.date('*t')
           t.day = t.day + 1
-          local tomorrow = os.time(t)
-          return os.date('%m/%d/%y %H:%M', tomorrow)
+          return os.date('%m/%d/%y', os.time(t))
         end,
         key = '<leader>te',
-        style = { fg = colors.darkgray },
-        -- jump_to_on_insert = 'value', -- Jump the cursor to the value so that you can edit it after insert, if you desire
+        style = { fg = colors.gray },
+        jump_to_on_insert = 'value', -- Jump the cursor to the value so that you can edit it after insert, if you desire
+      },
+      assign = {
+        key = '<leader>ta',
+        style = { fg = colors.gray },
+        jump_to_on_insert = 'value', -- Jump the cursor to the value so that you can edit it after insert, if you desire
       },
     },
   })
