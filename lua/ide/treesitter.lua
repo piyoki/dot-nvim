@@ -13,6 +13,8 @@ function M.setup()
       'c',
       'cpp',
       'cmake',
+      'caddy',
+      'comment',
       'css',
       'csv',
       'dockerfile',
