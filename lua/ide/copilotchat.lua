@@ -2,7 +2,7 @@ local M = {}
 
 function M.setup()
   require('CopilotChat').setup({
-    model = 'claude-sonnet-4',
+    model = 'claude-sonnet-4.5',
     window = {
       layout = 'float', -- 'float' or 'vertical', 'horizontal'
       width = 0.95,
