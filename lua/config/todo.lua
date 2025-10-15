@@ -12,10 +12,14 @@ local colors = {
 function M.setup()
   -- Ref: https://github.com/bngarren/checkmate.nvim
   todo.setup({
-    files = { 'TODO', 'PLANNING', 'PROPOSAL', '*meeting*' }, -- matches TODO.md, PLANNING.md, PROPOSAL.md, and any file with meeting in the name
+    files = { 'meetings/**.md', 'TODO', 'PLANNING', 'PROPOSAL', '*meeting*' }, -- matches TODO.md, PLANNING.md, PROPOSAL.md, and any file with meeting in the name
     -- Default keymappings
     keys = {
-      ['<leader>tc'] = 'create', -- Create todo item
+      ['<leader>tc'] = {
+        rhs = '<cmd>Checkmate create<CR>',
+        desc = 'Create todo item',
+        modes = { 'n', 'v' },
+      },
     },
     todo_count_recursive = true,
     todo_count_position = 'eol',
