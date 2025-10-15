@@ -1,8 +1,8 @@
 local M = {}
 
 local telescope = require('telescope.builtin')
-local lspconfig = require('lspconfig')
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local lspconfig = vim.lsp.config
+local lspenable = vim.lsp.enable
 
 local on_attach = function(_, _)
   vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {})
@@ -38,45 +38,50 @@ end
 
 local setup_lsp_servers = function()
   -- Set up lsp servers via lspconfig
-  lspconfig.ansiblels.setup({ capabilities = capabilities })
-  lspconfig.bashls.setup({ capabilities = capabilities })
-  lspconfig.buf_ls.setup({ capabilities = capabilities })
-  lspconfig.clangd.setup({ capabilities = capabilities })
-  lspconfig.cmake.setup({ capabilities = capabilities })
-  lspconfig.docker_compose_language_service.setup({ capabilities = capabilities })
-  lspconfig.dockerls.setup({ capabilities = capabilities })
-  lspconfig.emmet_ls.setup({ capabilities = capabilities })
-  lspconfig.gopls.setup({ capabilities = capabilities })
-  lspconfig.graphql.setup({ capabilities = capabilities })
-  lspconfig.jdtls.setup({ capabilities = capabilities })
-  lspconfig.jsonls.setup({ capabilities = capabilities })
-  lspconfig.lua_ls.setup({
-    capabilities = capabilities,
+  lspenable('ansiblels')
+  lspenable('bashls')
+  lspenable('buf_ls')
+  lspenable('clangd')
+  lspenable('cmake')
+  lspenable('docker_compose_language_service')
+  lspenable('dockerls')
+  lspenable('emmet')
+  lspenable('gopls')
+  lspenable('graphql')
+  lspenable('jdtls')
+  lspenable('jsonls')
+  lspenable('marksman')
+  lspenable('nixd')
+  lspenable('pyright')
+  lspenable('sqls')
+  lspenable('tailwindcss')
+  lspenable('terraformls')
+  lspenable('ts_ls')
+  lspenable('yamlls')
+  lspenable('eslint')
+  lspenable('golangci_lint_ls')
+  lspenable('tflint')
+
+  lspconfig('rust_analyzer', {
     settings = {
-      Lua = {
+      ['rust-analyzer'] = {},
+    },
+  })
+
+  lspconfig('lua_ls', {
+    settings = {
+      ['Lua'] = {
         diagnostics = {
           globals = { 'vim' },
         },
       },
     },
   })
-  lspconfig.marksman.setup({ capabilities = capabilities })
-  lspconfig.nixd.setup({ capabilities = capabilities })
-  lspconfig.pyright.setup({ capabilities = capabilities })
-  lspconfig.rust_analyzer.setup({ capabilities = capabilities })
-  lspconfig.sqls.setup({ capabilities = capabilities })
-  lspconfig.tailwindcss.setup({ capabilities = capabilities })
-  lspconfig.terraformls.setup({ capabilities = capabilities })
-  lspconfig.ts_ls.setup({ capabilities = capabilities })
-  lspconfig.yamlls.setup({ capabilities = capabilities })
-  lspconfig.eslint.setup({ capabilities = capabilities })
-  lspconfig.golangci_lint_ls.setup({ capabilities = capabilities })
-  lspconfig.tflint.setup({ capabilities = capabilities })
 
   -- Not available with native binary
-  lspconfig.cssls.setup({ capabilities = capabilities })
-  lspconfig.cssmodules_ls.setup({ capabilities = capabilities })
-  lspconfig.html.setup({ capabilities = capabilities })
+  -- lspconfig.cssls.setup({ capabilities = capabilities })
+  -- lspconfig.cssmodules_ls.setup({ capabilities = capabilities })
+  -- lspconfig.html.setup({ capabilities = capabilities })
 end
 
 function M.setup()
