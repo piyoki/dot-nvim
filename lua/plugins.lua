@@ -86,7 +86,7 @@ return require('packer').startup(function()
   use({ 'wakatime/vim-wakatime' })
   use({ 'tamago324/lir.nvim' })
   use({ 'rmagatti/auto-session' })
-  use({ 'bngarren/checkmate.nvim', tag = 'v0.9.1' })
+  use({ 'bngarren/checkmate.nvim' })
 
   -- searching & filtering
   use({ 'nvim-telescope/telescope.nvim' })
