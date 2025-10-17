@@ -90,6 +90,7 @@ function M.setup()
   -- FloatTerm
   utils.map('n', '<C-x>', ":lua require('FTerm').toggle()<CR>", opts) -- (N) toggle Fterm
   utils.map('t', '<C-x>', "<C-\\><C-n><CMD>lua require('FTerm').toggle()<CR>") -- (T) Close out Fterm
+  utils.map('t', '<C-g>', "q<C-\\><C-n><CMD>lua require('FTerm').toggle()<CR>") -- (T) Close out Lazygit Fterm
 
   -- Commentary
   utils.map('n', '<LEADER>/', ':Commentary<CR>') -- (N) Toggle Comment
@@ -126,7 +127,8 @@ function M.setup()
     { '<Leader>gdc', '<cmd>DiffviewClose<CR>', desc = 'DiffviewClose' },
     { '<Leader>gdf', '<cmd>DiffviewFileHistory<CR>', desc = 'DiffviewFileHistory' },
     { '<Leader>gb', '<cmd>GitBlameToggle<CR>', desc = 'GitBlameToggle' },
-    { '<Leader>gg', '<cmd>LazyGit<CR>', desc = 'LazyGit' },
+    -- { '<Leader>gg', '<cmd>LazyGit<CR>', desc = 'LazyGit' },
+    { '<Leader>gg', ':lua require("FTerm").toggle()<CR>lazygit<CR>', desc = 'LazyGit' },
   })
 
   -- Overwrite default settings
