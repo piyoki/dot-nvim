@@ -15,9 +15,14 @@ function M.setup()
     files = { 'meetings/**.md', 'TODO', 'PLANNING', 'PROPOSAL', '*meeting*' }, -- matches TODO.md, PLANNING.md, PROPOSAL.md, and any file with meeting in the name
     -- Default keymappings
     keys = {
-      ['<leader>tc'] = {
+      ['<leader>Tn'] = {
         rhs = '<cmd>Checkmate create<CR>',
         desc = 'Create todo item',
+        modes = { 'n', 'v' },
+      },
+      ['<leader>Tt'] = {
+        rhs = '<cmd>Checkmate toggle<CR>',
+        desc = 'Toggle todo item',
         modes = { 'n', 'v' },
       },
     },
@@ -36,10 +41,10 @@ function M.setup()
     },
     metadata = {
       -- Default metadata
-      priority = { key = '<leader>tp' },
-      started = { key = '<leader>ts', style = { fg = colors.yellow } },
+      priority = { key = '<leader>Tp' },
+      started = { key = '<leader>Ts', style = { fg = colors.yellow } },
       done = {
-        key = '<leader>tt',
+        key = '<leader>Td',
         style = { fg = colors.green },
         on_remove = function(todo_item)
           require('checkmate').set_todo_item(todo_item, 'unchecked')
@@ -54,12 +59,12 @@ function M.setup()
           t.day = t.day + 1
           return os.date('%m/%d/%y', os.time(t))
         end,
-        key = '<leader>te',
+        key = '<leader>Te',
         style = { fg = colors.gray },
         jump_to_on_insert = 'value', -- Jump the cursor to the value so that you can edit it after insert, if you desire
       },
       assign = {
-        key = '<leader>ta',
+        key = '<leader>Ta',
         style = { fg = colors.gray },
         jump_to_on_insert = 'value', -- Jump the cursor to the value so that you can edit it after insert, if you desire
       },
