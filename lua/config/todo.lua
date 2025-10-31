@@ -12,6 +12,8 @@ local colors = {
 function M.setup()
   -- Ref: https://github.com/bngarren/checkmate.nvim
   todo.setup({
+    enabled = true,
+    notify = true,
     files = { 'meetings/**.md', 'TODO', 'PLANNING', 'PROPOSAL', '*meeting*' }, -- matches TODO.md, PLANNING.md, PROPOSAL.md, and any file with meeting in the name
     -- Default keymappings
     keys = {
