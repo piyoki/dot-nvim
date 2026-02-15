@@ -20,7 +20,6 @@ local mason_ensure_installed = {
   'cmake',
   'docker_compose_language_service',
   'dockerls',
-  'emmet',
   'gopls',
   'graphql',
   'jdtls',
