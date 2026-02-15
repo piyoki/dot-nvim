@@ -1,10 +1,18 @@
 local M = {}
 
-local nvim_treesitter_configs = require('nvim-treesitter.configs')
-
 function M.setup()
-  vim.g.skip_ts_context_commentstring_module = true
-  require('ts_context_commentstring').setup({})
+  local ok_treesitter, nvim_treesitter_configs = pcall(require, 'nvim-treesitter.configs')
+  if not ok_treesitter then
+    vim.notify('nvim-treesitter is not available', vim.log.levels.WARN)
+    return
+  end
+
+  local ok_commentstring, commentstring = pcall(require, 'ts_context_commentstring')
+  if ok_commentstring then
+    vim.g.skip_ts_context_commentstring_module = true
+    commentstring.setup({})
+  end
+
   nvim_treesitter_configs.setup({
     -- ref: https://github.com/nvim-treesitter/nvim-treesitter
     ensure_installed = {
@@ -88,10 +96,9 @@ function M.setup()
     },
     -- ensure_installed = 'all',
     -- ignore_install = { 'swift', 'phpdoc', 'beancount' },
-    autopairs = { enable = true },
     highlight = { enable = true },
-    -- indent = { enable = true },
-    rainbow = { enable = true, extended_mode = true },
+    indent = { enable = true },
+    incremental_selection = { enable = true },
     textobjects = {
       select = {
         enable = true,
