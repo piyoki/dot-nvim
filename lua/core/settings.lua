@@ -39,7 +39,7 @@ function settings.setup()
 
   -- window scope options
   vim.opt.number = true -- enable linenumber
-  vim.opt.relativenumber = true -- enable relative linenumber
+  -- vim.opt.relativenumber = true -- enable relative linenumber
   vim.opt.termguicolors = true -- enable termguicolors
   vim.opt.cursorline = true -- enable highlighting of the current line
   vim.opt.foldmethod = 'indent' -- The kind of folding used for the current window
