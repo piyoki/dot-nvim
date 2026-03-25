@@ -10,6 +10,12 @@ function settings.setup()
   vim.cmd('syntax on') -- enable sytnax highlighting
   vim.cmd('filetype plugin indent on') -- enable auto indent
 
+  -- automatically refresh files when they change on disk
+  vim.o.autoread = true
+  vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold' }, {
+    command = 'checktime',
+  })
+
   -- global options
   vim.opt.shiftwidth = indent -- change the number of space characters inserted for indentation
   vim.opt.softtabstop = indent -- set the number of columns for a tab

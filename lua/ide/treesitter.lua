@@ -96,7 +96,10 @@ function M.setup()
     },
     -- ensure_installed = 'all',
     -- ignore_install = { 'swift', 'phpdoc', 'beancount' },
-    highlight = { enable = true },
+    highlight = {
+      enable = true,
+      disable = { 'substitute' }, -- e.g., "gitcommit", "gitrebase"
+    },
     indent = { enable = true },
     incremental_selection = { enable = true },
     textobjects = {

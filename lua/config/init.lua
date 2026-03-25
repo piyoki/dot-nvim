@@ -8,8 +8,9 @@ function M.setup()
   require('config.autopairs').setup()
   require('config.telescope').setup()
   require('config.file_explorer').setup()
-  require('config.todo').setup()
+  -- require('config.todo').setup()
   require('config.interface').setup()
+  require('config.lualine').setup()
   require('config.sessions').setup()
 end
 

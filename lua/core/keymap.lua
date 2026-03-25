@@ -62,9 +62,6 @@ function M.setup()
   utils.map('v', '<LEADER>p', '"_dP', opts)
 
   ----------------------------------------------
-  -- Explorer
-  utils.map('n', '<C-b>', '<cmd>Explore<CR>') -- Open built-in file explorer
-
   -- Tab
   utils.map('n', '<LEADER>-', ':BufferPrevious<CR>') -- Jump to previous buffer
   utils.map('n', '<LEADER>=', ':BufferNext<CR>') -- Jump to the next buffer
@@ -116,7 +113,7 @@ function M.setup()
   utils.map('n', 'go', '<cmd>Telescope oldfiles hidden=true prompt_prefix=🔍<CR>')
 
   -- File Explorer
-  utils.map('n', '<C-b>', ":lua require'lir.float'.toggle()<CR>")
+  utils.map('n', '<C-b>', '<cmd>Neotree toggle<CR>') -- Open built-in file explorer
 
   -- LSP (Short)
   utils.map('n', '<C-e>', ':lua vim.diagnostic.open_float')

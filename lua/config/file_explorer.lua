@@ -1,87 +1,24 @@
 local M = {}
-local actions = require('lir.actions')
-local mark_actions = require('lir.mark.actions')
-local clipboard_actions = require('lir.clipboard.actions')
-local lir = require('lir')
 
 function M.setup()
-  lir.setup({
-    show_hidden_files = true,
-    ignore = {
-      'DS_Store',
-    },
-    devicons = {
-      enable = true,
-      highlight_dirname = true,
-    },
-    mappings = {
-      ['<CR>'] = actions.edit,
-      ['e'] = actions.edit,
-      ['<C-s>'] = actions.split,
-      ['<C-v>'] = actions.vsplit,
-      ['<C-t>'] = actions.tabedit,
-
-      ['h'] = actions.up,
-      ['l'] = actions.edit,
-      ['q'] = actions.quit,
-      ['@'] = actions.cd,
-      ['Y'] = actions.yank_path,
-      ['.'] = actions.toggle_show_hidden,
-
-      -- select the current item
-      ['<space>'] = function()
-        mark_actions.toggle_mark()
-        vim.cmd('normal! jk')
-      end,
-      ['y'] = clipboard_actions.copy,
-      ['x'] = clipboard_actions.cut,
-      ['p'] = clipboard_actions.paste,
-      ['N'] = actions.mkdir,
-      ['n'] = actions.newfile,
-      ['r'] = actions.rename,
-      ['d'] = actions.delete,
-    },
-    float = {
-      winblend = 1,
-      curdir_window = {
-        enable = true,
-        highlight_dirname = true,
+  local neotree = require('neo-tree')
+  neotree.setup({
+    filesystem = {
+      hijack_netrw_behavior = 'disabled',
+      follow_current_file = {
+        enabled = true,
+        leave_dirs_open = true,
       },
-
-      -- -- You can define a function that returns a table to be passed as the third
-      -- -- argument of nvim_open_win().
-      -- win_opts = function()
-      --   local width = math.floor(vim.o.columns * 0.8)
-      --   local height = math.floor(vim.o.lines * 0.8)
-      --   return {
-      --     border = {
-      --       "+", "─", "+", "│", "+", "─", "+", "│",
-      --     },
-      --     width = width,
-      --     height = height,
-      --     row = 1,
-      --     col = math.floor((vim.o.columns - width) / 2),
-      --   }
-      -- end,
+      filtered_items = {
+        visible = true,
+        hide_dotfiles = false,
+        hide_gitignored = false,
+        hide_by_name = {
+          'node_modules',
+          '.DS_Store',
+        },
+      },
     },
-    hide_cursor = true,
-
-    vim.api.nvim_create_autocmd({ 'FileType' }, {
-      pattern = { 'lir' },
-      callback = function()
-        -- use visual mode
-        vim.api.nvim_buf_set_keymap(
-          0,
-          'x',
-          'J',
-          ':<C-u>lua require"lir.mark.actions".toggle_mark("v")<CR>',
-          { noremap = true, silent = true }
-        )
-
-        -- echo cwd
-        vim.api.nvim_echo({ { vim.fn.expand('%:p'), 'Normal' } }, false, {})
-      end,
-    }),
   })
 end
 

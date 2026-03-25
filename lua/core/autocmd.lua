@@ -42,7 +42,9 @@ function autocmd.setup()
 
   -- change working directory to the project root when opening a file
   nvim_cmd([[
-    lua require('nvim-rooter').setup()
+    lua require("nvim-rooter").setup({
+      manual = true,
+    })
   ]])
 end
 

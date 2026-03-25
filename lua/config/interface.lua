@@ -45,9 +45,6 @@ function interface.setup()
   })
   require('nvim-web-devicons').setup({ default = true })
 
-  -- statusline
-  require('lualine').setup({ options = { theme = 'iceberg_dark' } })
-
   -- theme specific mod
 
   -- activate theme

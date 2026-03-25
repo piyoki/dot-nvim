@@ -13,14 +13,21 @@ local listchars = require('nvim-listchars')
 
 function M.setup()
   vim.opt.list = true
+  vim.cmd('set nolist')
   listchars.setup({
     save_state = true, -- If enabled, save toggled state in a cache file. Will overwrite current `vim.opt.list` value.
+    notify = false, -- disable "listchars disabled" message and prompts
     listchars = {
       trail = '▫',
       eol = '↴',
       tab = '▎ ',
     },
-    exclude_filetypes = {}, -- List of filetypes where `listchars` is disabled
+    exclude_filetypes = {
+      'help',
+      'markdown',
+      'terminal',
+      'TelescopePrompt',
+    }, -- List of filetypes where `listchars` is disabled
     lighten_step = 10, -- Amount to add/remove from base color
   })
 

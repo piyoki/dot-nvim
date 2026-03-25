@@ -56,6 +56,7 @@ return require('packer').startup(function()
   use({ 'f-person/git-blame.nvim' })
   use({ 'lewis6991/gitsigns.nvim' })
   use({ 'kdheepak/lazygit.nvim' })
+  use({ 'ThePrimeagen/git-worktree.nvim' })
 
   -- IDE-like development
   use({ 'onsails/lspkind-nvim' })
@@ -83,8 +84,15 @@ return require('packer').startup(function()
   use({ 'ThePrimeagen/harpoon' })
   use({ 'numtostr/FTerm.nvim' })
   use({ 'folke/which-key.nvim' })
-  use({ 'wakatime/vim-wakatime' })
-  use({ 'tamago324/lir.nvim' })
+  use({
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v3.x',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+      'nvim-tree/nvim-web-devicons', -- optional, but recommended
+    },
+  })
   use({ 'rmagatti/auto-session' })
   use({ 'bngarren/checkmate.nvim', tag = 'v0.11.2' })
 

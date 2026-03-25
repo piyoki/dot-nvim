@@ -2,7 +2,7 @@ local M = {}
 
 function M.setup()
   vim.g.mkdp_filetypes = { 'markdown' }
-  vim.g.mkdp_auto_start = 1
+  vim.g.mkdp_auto_start = 0
   vim.g.mkdp_auto_close = 0
   vim.g.mkdp_refresh_slow = 0
   vim.g.mkdp_command_for_global = 1
@@ -10,6 +10,7 @@ function M.setup()
   vim.g.mkdp_open_ip = 'localhost'
   vim.g.mkdp_browser = ''
   vim.g.mkdp_echo_preview_url = 0
+  vim.g.mkdp_combine_preview = 1
   vim.api.nvim_command([[
   function! g:EchoUrl(url)
       :echo 'MARKDOWN_PREVIEW_URL: 'a:url

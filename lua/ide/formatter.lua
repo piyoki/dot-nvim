@@ -143,6 +143,16 @@ function M.setup()
           }
         end,
       },
+      -- rego filetype
+      rego = {
+        function()
+          return {
+            exe = 'opa fmt',
+            args = {},
+            stdin = true,
+          }
+        end,
+      },
       -- Use the special "*" filetype for defining formatter configurations on
       -- any filetype
       ['*'] = {
